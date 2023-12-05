@@ -1,0 +1,125 @@
+@media screen and (max-width: 768px) {
+    /* 흰색 페이지 */
+    #page {
+        width: 90%;
+        margin: 50px auto;
+    }
+
+    /* 헤더영역 */
+    #header {
+        padding: 20px;
+        position: relative;
+    }
+    #header > h1 {
+        width: 50%;
+        margin-left: 0;
+    }
+    #header > div {
+        display: flex;
+        align-items: center;
+    }
+    #header > div > a {
+        margin-bottom: 0;
+        padding: 0;
+        margin-right: 20px;
+    }
+    /* 메뉴버튼 */
+    /* 토글메뉴 */
+    #toggle {
+        display: block;
+        width: 40px;
+        height: 25px;
+        background-image: url(../images/menu_button.png);
+        animation: slideleft 1s ;
+    }
+    #toggle > span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+    }
+    #menu {
+        /* 처음에는 안 보이게 설정 */
+        display: none;
+
+        position: absolute;
+        top: 100%;
+        right: 50%;
+        width: 100%;
+        margin-right: 20px;
+        transform: translate(calc(50% + 20px));
+        padding: 15px 0;
+        background-color: rgba(223, 204, 251, 0.8);
+
+        text-align: right;
+    }
+    #menu > li {
+        font-size: 20px;
+        line-height: 2em;
+        border: none;
+        margin-right: 20px;
+    }
+    #menu > li:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    #menu > li > a {
+        color: #404040;
+    }
+    #wrap {
+        display: block;
+        text-align: center;
+    }
+    #wrap > h3 {
+        font-size: 20px;
+
+    }
+    #wrap > h3 > div {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #planet {
+        width: 80%;
+        height: auto;
+    }
+    #planet > img {
+        width: 200%;
+        position: relative;
+        left: -50%;
+        bottom: -50%;
+    }
+    #planet > ul {
+
+    }
+    /* planet 위의 sns 로고들 */
+    #planet > ul > li {
+        width: 15%;
+        height: 10%;
+        max-width: 57px;
+        max-height: 57px;
+        background-size: contain;
+    }
+    #planet > ul > li:nth-child(1) {top: 10%; right: auto; left: 0;}
+    #planet > ul > li:nth-child(2) {top: 6%; bottom: auto; left: 25%;}
+    #planet > ul > li:nth-child(3) {top: 3%; bottom: auto; left: 50%;}
+    #planet > ul > li:nth-child(4) {top: 6%; right: 10%; left: auto;}
+    #planet > ul > li:nth-child(5) {top: 10%; right: -10%;}
+
+    /* 푸터 영역 */
+    /* #footer {
+        margin-top: -50%;
+        position: relative;
+        z-index: 100;
+    }
+    #footer > ul {
+        justify-content: center;
+    }
+    #footer > ul > li {
+        width: 20%;
+        max-width: 65px;
+        margin-right: 0;
+        background-size: 70%;
+    } */
+}

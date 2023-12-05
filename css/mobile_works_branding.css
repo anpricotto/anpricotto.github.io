@@ -1,0 +1,83 @@
+@media screen and (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+    /* 헤더 */
+    #header {
+        width: 100%;
+    }
+    /* 고정폭 fix */
+    #fix {
+        width: 80%;
+        margin: 100px auto 0 auto;
+    }
+    #fix > section {
+        display: block;
+    }
+    #h1 {
+        width: 80%;
+        margin: 0 auto;
+        line-height: 1.5;
+    }
+    /* section 1 - 로고 제작 */
+    #section1 > ul {
+        display: block;
+    }
+    #section1 > ul > li {
+        margin-bottom: 50px;
+    }
+    #section1 > ul > li > img {
+        display: block;
+        width: 100%;
+    }
+    #section1 > ul > li > span {
+        text-align: right;
+    }
+    #section1 > p {
+        margin-top: 40px;
+        padding-left: 0;
+    }
+
+    /* section 2 - 로고 활용 */
+    #section2 > ul {
+        display: block;
+    }
+    #section2 > ul > li {
+        margin-bottom: 50px;
+    }
+    #section2 > ul > li > img {
+        display: block;
+        width: 100%;
+    }
+    #section2 > ul > li > span {
+        text-align: right;
+        margin-top: 10px;
+    }
+    /* section 3 - 제품 디자인 */
+    #section3 > p {
+        padding-left: 0;
+    }
+    #section3 > div {
+        display: block;
+    }
+    #section3 > div > img {
+        width: 100%;
+    }
+    #section3 > div > p {
+        margin: 25px 0 0;
+    }
+    #poster {margin-top: 50px;}
+
+    /* section 4 - 홍보 배너 */
+    #section4 > div {
+        display: block;
+    }
+    #section4 > div > img {
+        width: 100%;
+        margin: 0 auto ;
+    }
+    #section4 > div > p {
+        padding: 0;
+        margin-top: 25px;
+    }
+} /* media query (뷰포트 너비 <= 768px)*/

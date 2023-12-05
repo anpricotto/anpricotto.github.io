@@ -1,0 +1,521 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fff;
+    color: #202020;
+}
+
+/* 페이지 크기 */
+html, body {height: 100%;}
+
+#page {
+    height: 100%;
+    display: none;
+}
+
+/* 공통 스타일 속성 */
+.page {
+    height: 100%;
+    position: relative;
+}
+
+/* 메뉴 토글 버튼 */
+.header {
+    position: relative;
+    height: 140px;
+}
+.header > h1 {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 50px;
+
+    background-image: url(../images/silica-gel-logo-main.png);
+    background-size: 200px;
+    background-repeat: no-repeat;
+}
+/* 웹 접근성 향상 <span> 요소 보이지 않도록 설정 */
+.header > h1 > a > span {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip:rect(0,0,0,0);
+    overflow: hidden;
+}
+.toggle {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 40px;
+
+    background-image: url(../images/menu.png);
+    background-repeat: no-repeat;
+
+    /* <button> 요소 기본 스타일 속성 제거 */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.toggle > span {
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 1px;
+    clip:rect(0,0,0,0);
+    overflow: hidden;
+}
+
+/* 메뉴 버튼 오버레이 */
+#overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(255, 255, 255, 0.8);
+
+    /* 처음에는 보이지 않도록 설정 */
+    display: none;
+    cursor: pointer;
+}
+#overlay > nav > ul {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    width: 100px;
+}
+#overlay > nav > ul > li:hover {
+    background-image: url(../images/silica-gel-small.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 20px;
+}
+
+#overlay > nav > ul > li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+#overlay > nav > ul > li > a {
+    color: #202020;
+    text-decoration: none;
+    font-size: 18px;
+}
+/* --------------------------------------------------------------------------- */
+/* page 1 */
+#page1 > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50%;
+}
+
+/* page 2 - music*/
+.container {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 140px);
+    position: relative;
+}
+
+.aside {
+    position: absolute;
+    left: -230px;
+    bottom:0;
+
+    width: 230px;
+}
+.aside > span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 150px;
+    font-weight: 900;
+    color: #d0d0d0;
+}
+.container > article {
+    margin-left: 160px;
+    width: calc(100% - 230px);
+    height: 100%;
+}
+#albumWrap {
+    width: 40%;
+    max-width: 500px;
+    margin: 0 auto;
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#albumList {
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+#albumList > ul {
+    width: 500%;
+    display: flex;
+
+    background-color: transparent;
+}
+#albumList > ul > li {
+    width: 20%;
+    /* .back 요소의 위치지정요소가 되도록 설정 */
+    position: relative;
+}
+
+#albumList > ul > li > img {
+    display: block;
+    width: 100%;
+}
+
+#albumList > ul > li > div.back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+
+    opacity: 0;
+}
+#albumList > ul > li > div.back:hover {
+    opacity: 1;
+}
+#albumList > ul > li > div.back > h3 {
+    margin: 40% auto 40px auto;
+    font-size: 20px;
+}
+#prev, #next {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#prev:hover, #next:hover {
+    cursor: pointer;
+}
+#prev {
+    background-image: url(../images/prev.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: calc(-50px - 10%);
+}
+#next {
+    background-image: url(../images/next.png);
+    right: calc(-50px - 10%);
+}
+/* 웹 접근성 향상 <span> 요소 보이지 않도록 설정 */
+#prev > span, #next > span {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+}
+
+/* indicator 요소 위치 */
+#indicator {
+    /* indicator 요소의 위치지정요소는 #albumwrap(relative)*/
+    position: absolute;
+    width: 100%;
+    bottom: -30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* indicator 요소의 동그라미 스타일 속성 */
+#indicator > li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #a0a0a0;
+    cursor: pointer;
+}
+#indicator > li:not(:last-child) {
+    margin-right: 5px;
+}
+#indicator > li.on {
+    background-color: #a0a0a0;
+    opacity: 0.8;
+    cursor: default;
+}
+#indicator > li > span {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+}
+
+/* more info 버튼 */
+.moreinfo {
+    /* a 요소 기본 스타일 속성 제거 */
+    color: #202020;
+    text-decoration: none;
+
+    /* 위치 설정 */
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    /* 배경 이미지 */
+    background-image: url(../images/more_info.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    /* 크기 설정 */
+    display: block;
+    width: 100px;
+    height: 1.6em;
+}
+
+/* page 3 - news */
+#news {
+    width: 70%;
+    margin: 5% auto 0 auto;
+}
+#news > li {
+    display: flex;
+    margin-bottom: 20px;
+}
+#news > li:last-child {margin-bottom: none;}
+
+#news > li > p.date {
+    width: 120px;
+    color: #808080;
+    margin-right: 20px;
+    line-height: 1.6;
+}
+#news > li > p.title {
+    font-size: 20px;
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;
+
+    /* 가상요소 배치시 기준이 되도록 */
+    position: relative;
+}
+#news > li > p.title:before {
+    content: "";
+
+    /* p.date 요소를 기준으로 배치 */
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    bottom: 10px;
+    width: 1px;
+    border-right: 1px solid #202020;
+}
+
+/* 기사 리스트 more 버튼 */
+.more {
+    /* button 요소 기본 스타일 속성 제거 */
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+
+    width: 30px;
+    background-image: url(../images/next_grey.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 50%;
+    cursor: pointer;
+}
+/* 웹 접근성 향상 span 요소 안 보이게 설정 */
+.more > span {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+}
+
+/* page 4 - newsletter */
+#page4 > div > aside > span {
+    font-size: 120px;
+}
+#page4 > div > aside > span:first-child {
+    position: absolute;
+    top: -92px;
+    left: 105px;
+}
+
+#page4 > .container > article {
+    margin-left: 230px;
+}
+#box {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.asideMove {
+    transform: translateX(230px);
+    transition-duration: 1000ms;
+}
+
+
+/* 실리카겔 image */
+#box > img:first-child {
+    position: absolute;
+    width: 40%;
+    max-width: 600px;
+    left: 0;
+    bottom: 10%;
+}
+#box > img:nth-child(2) {
+    width: 25%;
+    max-width: 600px;
+    position: absolute;
+    top: 0;
+    right: 10%;
+}
+#box > img:nth-child(3) {
+    width: 40%;
+    max-width: 600px;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+}
+
+/* 뉴스레터 창 */
+#newsletter {
+    /* border: 2px solid #202020; */
+    background-color: #fff;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10% 15%;
+
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+}
+
+#newsletter > span {
+    font-size: 20px;
+}
+#email {
+    width: 100%;
+    margin: 10px 0 20px 0;
+}
+/* checkbox */
+#check-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 10px;
+}
+.checkbox {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#submit {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #202020;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+
+    position: absolute;
+    right: 15%;
+    cursor: pointer;
+}
+
+.alert {
+    width: 400px;
+    line-height: 8;
+    background-color: #ffffff;
+    background-image: url(../images/close.png);
+    background-repeat: no-repeat;
+    background-position: 385px 5px;
+    background-size: 10px;
+    text-align: center;
+    border: 2px solid #202020;
+    margin: 30px auto;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}
+
+/* 서서히 나타나는 효과 Class */
+.fadeIn {
+    animation: fadeIn 700ms linear;
+}
+@keyframes fadeIn {
+    from {opacity: 0};
+    to {opacity: 1};
+}
+
+/* footer */
+#footer {
+    height: 50px;
+    background-color: #202020;
+    color: #fff;
+    text-align: right;
+    line-height: 3em;
+}
+
+#loadPage {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: #101010;
+}
+#loadPage > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+}
+#logowhite {
+    animation: logowhite 5000ms;
+}
+#logoblack {
+    display: none;
+}
+@keyframes loadPage {
+    from {background-color: #fff;}
+    to {background-color: #000;}
+}
+
+@keyframes logowhite {
+    from {transform: translate(-50%, -50%) rotate(0deg);}
+    10%  {transform: translate(-50%, -50%) rotate(0deg);}
+    25%  {transform: translate(-50%, -50%) rotate(180deg);}
+    35%  {transform: translate(-50%, -50%) rotate(180deg);}
+    50%  {transform: translate(-50%, -50%) rotate(360deg);}
+    60%  {transform: translate(-50%, -50%) rotate(360deg);}
+    to   {transform: translate(-50%, -50%) scale(40);}
+}
+
+@keyframes logoblack {
+    from {transform: translate(-50%, -50%) scale(40);}
+    to   {transform: translate(-50%, -50%) scale(1);}
+}

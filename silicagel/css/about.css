@@ -1,0 +1,243 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fff;
+    color: #202020;
+}
+
+/* 헤더 스타일 속성 */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 140px;
+}
+#header > h1 {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 50px;
+
+    background-image: url(../images/silica-gel-logo-main.png);
+    background-size: 200px;
+    background-repeat: no-repeat;
+}
+/* 웹 접근성 향상 <span> 요소 보이지 않도록 설정 */
+#header > h1 > a > span {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip:rect(0,0,0,0);
+    overflow: hidden;
+}
+/* 메뉴 토글 버튼 */
+#toggle {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 40px;
+
+    background-image: url(../images/menu.png);
+    background-repeat: no-repeat;
+
+    /* <button> 요소 기본 스타일 속성 제거 */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+#toggle > span {
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 1px;
+    clip:rect(0,0,0,0);
+    overflow: hidden;
+}
+
+/* 메뉴 버튼 오버레이 */
+#overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(255, 255, 255, 0.8);
+
+    /* 처음에는 보이지 않도록 설정 */
+    display: none;
+    cursor: pointer;
+}
+#overlay > nav > ul {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    width: 100px;
+}
+#overlay > nav > ul > li:hover {
+    background-image: url(../images/silica-gel-small.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 20px;
+}
+
+#overlay > nav > ul > li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+#overlay > nav > ul > li > a {
+    color: #202020;
+    text-decoration: none;
+    font-size: 18px;
+}
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+
+/* 가변 폭 */
+#container {
+    width: 60%;
+    margin : 0 auto;
+    overflow: hidden;
+}
+
+/* section - silicagel */
+#silicagel > img {
+    display: block;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+
+    animation: blink 500ms linear;
+}
+@keyframes blink {
+    from {opacity: 1;}
+    20% {opacity: 0;}
+    to {opacity: 1;}
+}
+#textbox {
+    margin: 60px auto 0 auto;
+}
+#textbox > h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+#textbox > p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+#textbox > p:last-child {
+    margin-bottom: 0;
+}
+
+/* section - members */
+#members {
+    margin: 150px 0;
+}
+#members > ul > li {
+    display: flex;
+    margin-top: 70px;
+}
+#members > ul > li > img {
+    width: 40%;
+    max-width: 300px;
+}
+.memberinfo {
+    margin: 30px 50px 0 50px;
+    width: 100%;
+}
+.memberinfo > h3 {
+    margin-bottom: 25px;
+    font-size: 25px;
+    font-weight: 400;
+}
+.memberinfo > p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.memberinfo > ul.info {
+    margin-left: 15px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1.8;
+
+    /* 가상요소가 ul 요소를 기준으로 배치되도록 */
+    position: relative;
+}
+.info:not(.info-odd)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -15px;
+    width: 1px;
+    border-left: 2px solid #202020;
+
+}
+.memberinfo > ul.info > li > span {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: 500;
+}
+.memberinfo > ul.info > li > a {
+    background-image: url(../images/instagram_logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+}
+/* 웹 접근성 향상을 위해 추가한 span 요소 보이지 않도록 설정 */
+.memberinfo > ul.info > li > a > span {
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 1px;
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+}
+/* 홀수번째 멤버 소개 배치 */
+#members > ul > li:nth-child(odd) {
+    margin-left: -50%;
+    opacity: 0;
+}
+
+/* 짝수번째 멤버 소개 배치 */
+#members > ul > li:nth-child(even) {
+    flex-direction: row-reverse;
+    margin-right: -50%;
+    opacity: 0;
+}
+#members > ul > li:nth-child(even) > div.memberinfo {
+    text-align: right;
+}
+.info-odd {
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+.info-odd::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -15px;
+    width: 1px;
+    border-left: 2px solid #202020;
+}
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+/* footer */
+#footer {
+    height: 50px;
+    background-color: #202020;
+    color: #fff;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 3em;
+}

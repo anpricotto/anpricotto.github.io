@@ -1,0 +1,97 @@
+body {
+    background-color:#fbf5e5;
+    font-family: 'Noto Sans KR', 'San-Serif';
+    color: #202020;
+}
+#header {
+    font-size: 25px;
+    background-color: #fff;
+    line-height: 2.5;
+    text-align: center;
+    height: 2.5em;
+    border-bottom: 3px solid #202020;
+
+    position: relative;
+}
+/* back 버튼 */
+#back {
+    /* a 요소 기본 스타일 속성 제거 */
+    color: #202020;
+    text-decoration: none;
+    text-align: right;
+
+    position: absolute;
+    right: 20px;
+
+    font-size: 20px;
+    line-height: 3;
+
+    width: 65px;
+    background-image: url(../images/works_back.png);
+    background-repeat: no-repeat;
+    background-position: -2px 37px;
+}
+#back:hover {
+    cursor: pointer;
+}
+
+#fix {
+    width: 960px;
+    margin: 0 auto;
+}
+
+/* 공통 스타일 속성 */
+#fix > section {
+    margin-top: 100px;
+    display: flex;
+}
+
+#fix > section > img {max-width: 400px;}
+.clickword {
+    display: none;
+}
+.wrap {
+    width: 510px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.wrap > h2 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+.wrap > p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 45px;
+}
+.wrap > ul {
+    width: 300px;
+}
+.wrap > ul > li {
+    border: 2px solid #202020;
+    border-radius: 15px;
+    padding-left: 10px;
+    line-height: 2;
+    margin-bottom: 10px;
+}
+/* 첫번째 section 스타일 속성 */
+#fix > section:first-child {margin-top: 150px;}
+
+
+/* 두번째 section 스타일 속성 */
+#fix > section:nth-child(2) {
+    flex-direction: row-reverse;
+}
+#fix > section:nth-child(2) > .wrap {
+    margin-left: 0;
+    margin-right: 50px;
+}
+/* 세번째 section 스타일 속성 */
+.wrap > ul > li:last-child {
+    margin-bottom: none;
+}
+
+#fix > section:last-child {
+    margin-bottom: 100px;
+}

@@ -1,0 +1,527 @@
+
+body {
+    background-color:#dfccfb;
+    font-family: 'Noto Sans KR', 'San-Serif';
+    color: #202020;
+}
+
+/* 흰색 페이지 */
+#page {
+    background-color:#ffffff;
+    width: 1400px;
+    border-radius: 40px 40px 0 0;
+
+    margin: 50px auto 20px auto;
+    overflow: hidden;
+}
+/* 헤더영역 */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    border-bottom: 2px solid #202020;
+    padding: 35px;
+    padding-bottom: 0;
+}
+
+#header > h1 {
+    width: 300px;
+    margin-left: 20px;
+    animation: slideright 1s;
+}
+#header > h1 > a {
+    display: block;
+}
+
+#header > h1 > a > img {
+    display: block;
+    width: 100%;
+}
+
+
+/* Home 글자 브라우저 화면에서 숨기고, 스크린 리더기에서는 보이도록 설정 */
+#header > h1 > a > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}
+
+/* language 버튼 */
+#header > div > a {
+    text-align: right;
+    margin-bottom: 28px;
+
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #202020;
+    font-size: 20px;
+
+    animation: slideleft 1s ;
+}
+
+/* 메뉴 버튼 */
+
+#toggle {display: none;}
+
+/* #header > div > ul { */
+#menu {
+    display: flex;
+}
+
+/* #header > div > ul > li { */
+#menu > li {
+    font-size: 25px;
+    border: 2px solid #202020;
+    border-bottom: none;
+    border-radius: 20px 20px 0 0;
+    margin-left: -1px;
+    overflow: hidden;
+}
+#menu > li:first-child {
+    border-bottom: 4px solid white;
+    margin-bottom: -2px;
+}
+
+#menu > li > a {
+    display: block;
+    padding: 8px;
+
+    text-decoration: none;
+    color: #202020;
+    animation: slideup 1s;
+}
+
+@keyframes slideup {
+    from {transform: translateY(40px);}
+    to {transform: translateY(0);}
+}
+
+@keyframes slideright {
+    from {transform: translateX(-400px);}
+    to {transform: translateX(0);}
+}
+@keyframes slideleft {
+    from {transform: translateX(100px);}
+    to {transform: translateX(0);}
+}
+/* 폭 고정 */
+#fix {
+    width:1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* 같은 형태의 테두리를 가진 박스들 스타일 속성 지정 */
+.content-box {
+    border: 2px solid #202020;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+/* section 1 - 자기소개 영역 */
+#introduce > h2 {
+    margin-left: 40px;
+    display: flex;
+    font-size : 80px;
+    line-height: 1.8em;
+}
+#tickerWrap {
+    height: 1.8em;
+    overflow: hidden;
+}
+#tickerWrap > ul {
+    margin-left: 20px;
+    color: #87abe8;
+}
+
+#wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    margin: 45px 10px 0 10px;
+}
+
+#introduce > img {
+    max-width: 325px;
+    max-height: 460px;
+    margin-right: 26px;
+}
+
+#wrap > div:nth-child(2) {
+    padding: 40px 75px;
+}
+
+#wrap > div > p:nth-of-type(1){
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+#wrap > div > p:nth-of-type(2){
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+/* 자기소개 페이지 요소들 배치 */
+/* 기준이 되는 영역 위치지정요소로 설정 */
+.relative {position: relative;
+    margin-right: 40px;
+}
+
+.blend {
+    position: absolute;
+    z-index: 1;
+}
+
+#blend1 {
+    top: -50px;
+    left: 55px;
+    animation: floatitem 2s infinite linear;
+    animation-delay: 1s;
+}
+#blend2 {
+    right: -160px;
+    bottom: 85px;
+    width: 110px;
+    animation: floatitem2 1500ms infinite linear;
+    animation-delay: 1s;
+}
+#blend3 {
+    bottom: 280px;
+    right: -700px;
+    width: 115px;
+    animation: floatitem2 1500ms infinite linear;
+    animation-delay: 1s;
+}
+#blend4 {
+    right: -140px;
+    bottom: -130px;
+    width: 300px;
+}
+
+@keyframes floatitem {
+    from {transform: translate(0, 0);}
+    50% {transform: translate(5px, 10px);}
+    to {transform: translate(0, 0);}
+}
+@keyframes floatitem2 {
+    from {transform: translateY(0);}
+    50% {transform: translateY(-20px);}
+    to {transform: translateY(0);}
+}
+
+/* section 2 - skills 영역 */
+#skill {
+    position: relative;
+    width: 1100px;
+    height: 740px;
+    margin: 150px auto 0 auto;
+}
+.skills {
+    position: absolute;
+}
+.skills > h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* section 2 - skills - 경험 */
+#skill1 {
+    top:0;
+    right: 100px;
+
+    width: 745px;
+
+    display: flex;
+    justify-content: space-around;
+
+    background-image: url(../images/main_arrow_right.png);
+    background-repeat: no-repeat;
+    background-position: 170px 50px;
+}
+#skill1 > h3 {
+    margin: 22px 40px auto 40px;
+    width: 4rem;
+}
+#skill1 > ul {
+    margin: 20px 30px 20px 0;
+
+    display: flex;
+    justify-content: space-between;
+}
+#skill1 > ul > li {
+    font-size: 1rem;
+    margin-right: 60px;
+}
+
+#skill1 > ul > li:nth-child(1) {width: 123px;}
+#skill1 > ul > li:nth-child(2) {width: 212px;}
+#skill1 > ul > li:nth-child(3) {width: 80px;}
+
+#skill1 > ul > li > span {
+    display: block;
+    font-size: 1rem;
+}
+
+.years {
+    font-size: 14px;
+    padding-bottom: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#skill1 > ul > li > span:not(:first-of-type) {
+    line-height: 1.2em;
+    margin-bottom: 8px;
+}
+/* section 2 - skills - 교육/학력 */
+#skill2 {
+    top: 105px;
+    left: 0;
+
+    z-index: 1;
+    width: 320px;
+    height: 320px;
+    box-sizing: border-box;
+    padding: 40px 48px 47px 82px;
+
+    border-radius: 50%;
+    background-color: #dfccfb;
+
+    background-image: url(../images/main_arrow_down.png);
+    background-repeat: no-repeat;
+    background-position: 50px center;
+}
+#skill2 > h3 {
+    margin-bottom: 17px;
+    background-image: url(../images/main_education.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 100px;
+}
+
+#skill2 > ul {
+    font-size: 1rem;
+    margin-left: 12px;
+}
+#skill2 > ul > li:not(:last-child) {
+    margin-bottom: 25px;
+}
+#skill2 > ul > li > span {
+    display: block;
+}
+
+/* section 2 - skills - 강점 */
+#skill3 {
+    width: 230px;
+    top: 193px;
+    right: 0;
+
+    padding: 30px 10px 30px 50px;
+}
+
+#skill3 > h3 {
+    margin-bottom: 20px;
+    background-image: url(../images/main_strength.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 50px;
+
+    line-height: 2rem;
+}
+
+#skill3 > ul > li {
+    font-size: 1rem;
+    line-height: 2rem;
+
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    padding-left: 50px;
+    margin-bottom: 20px;
+}
+
+#skill3 > ul > li:nth-child(1){background-image: url(../images/main_eng.png);}
+#skill3 > ul > li:nth-child(2){background-image: url(../images/main_teamwork.png);}
+#skill3 > ul > li:nth-child(3){background-image: url(../images/main_communication.png);}
+#skill3 > ul > li:nth-child(4){background-image: url(../images/main_creativity.png);}
+#skill3 > ul > li:nth-child(5){background-image: url(../images/main_adaptation.png);
+                                margin-bottom: none;}
+
+/* section 2 - skills - 활용 툴 */
+#skill4 {
+    width: 560px;
+
+    right: 245px;
+    bottom: 50px;
+
+    padding: 26px 33px 20px 33px;
+}
+#skill4 > h3 {
+    margin-bottom: 20px;
+}
+#skill4 > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* section 3 - journey */
+#journey {
+    margin-top: 150px;
+}
+#journey > div {
+    width: 600px;
+    padding: 30px 0 30px 33px;
+}
+#journey > div > h3 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+#journey > div > p {
+    font-size: 18px;
+}
+#journey > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 900px;
+    margin: 130px auto 0 auto;
+}
+#journey > ul > li {
+    width: 250px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding-top: 240px;
+}
+#journey > ul > li > span {
+    display: block;
+    line-height: 1.5em;
+    text-align: center;
+}
+#journey > ul > li > span:first-child {
+    font-size: 20px;
+    font-weight: 400;
+}
+#journey > ul > li > span:last-child {
+    font-size: 1rem;
+    margin-top: 15px;
+}
+#journey > ul > li:nth-child(1) {background-image: url(../images/main_lots_in_head.png);}
+#journey > ul > li:nth-child(2) {background-image: url(../images/main_eyes.png);}
+#journey > ul > li:nth-child(3) {background-image: url(../images/main_idea.png);}
+
+/* section 4 - Works */
+#works {
+    margin-top: 150px;
+}
+#works > h3 {
+    width: 660px;
+    height: 3.2em;
+    margin: 0 auto;
+
+    font-size: 35px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 3.2em;
+}
+/* wheel 회전목마 -> mobile_index.css에 미디어 쿼리를 이용해 작성 */
+
+/* section 5 - email */
+#email > h3 {
+    font-size: 60px;
+    margin-left : 40px;
+    color: #303030;
+}
+#email > h3 > div {
+    background-image: url(../images/main_paper_plane.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+
+    margin-top: 30px;
+    height: 2em;
+    overflow: hidden;
+    line-height: 2;
+}
+#email > h3 > div > ul {
+    padding-left : 100px;
+}
+#email > div {
+    display: flex;
+    animation: marquee 5000ms linear infinite;
+}
+
+#email > div > p {
+    margin-top: 100px;
+    margin-right: 130px;
+    font-size: 100px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+@keyframes marquee {
+    to {margin-left: -100%;}
+}
+
+#email > div:hover {
+    animation-play-state: paused;
+}
+#email > div > p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color:  #808080;
+}
+#email > div > p > a {
+    text-decoration: none;
+    color: #808080;
+}
+/* 푸터영역 */
+#footer {
+    margin-top: 150px;
+    background-color: #fff8e9;
+    height: 100px;
+
+    position: relative;
+    z-index: 1;
+}
+#footer > ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+#footer > ul > li {
+    width: 57px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 20px;
+}
+#footer > ul > li:nth-child(1) {background-image: url(../images/footer_insta.png);}
+#footer > ul > li:nth-child(2) {background-image: url(../images/footer_pinterest.png);}
+#footer > ul > li:nth-child(3) {background-image: url(../images/footer_github.png);}
+#footer > ul > li:nth-child(4) {background-image: url(../images/footer_mail.png);}
+#footer > ul > li:nth-child(5) {background-image: url(../images/footer_heart.png);}
+
+#footer > ul > li > a {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+/* SNS 글자 브라우저 화면에서 숨기고, 스크린 리더기에서는 보이도록 설정 */
+#footer > ul > li > a > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}

@@ -1,0 +1,281 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fff;
+    color: #202020;
+}
+
+/* 페이지 크기 */
+html, body {height: 100%;}
+
+/* 헤더 스타일 속성 */
+
+/* 메뉴 토글 버튼 */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 140px;
+}
+#header > h1 {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 50px;
+
+    background-image: url(../images/silica-gel-logo-main.png);
+    background-size: 200px;
+    background-repeat: no-repeat;
+}
+/* 웹 접근성 향상 <span> 요소 보이지 않도록 설정 */
+#header > h1 > a > span {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip:rect(0,0,0,0);
+    overflow: hidden;
+}
+#toggle {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 40px;
+
+    background-image: url(../images/menu.png);
+    background-repeat: no-repeat;
+
+    /* <button> 요소 기본 스타일 속성 제거 */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+#toggle > span {
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 1px;
+    clip:rect(0,0,0,0);
+    overflow: hidden;
+}
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+
+/* 폭 고정 - 960px */
+#container {
+    width: 80%;
+    margin : 0 auto;
+}
+
+#h2 {
+    margin-top: 210px;
+    font-size: 50px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* 공통 스타일 속성 */
+/* 앨범 구분 */
+.nav > ul {
+    display: flex;
+    width: 210px;
+    margin: 0 auto;
+}
+.nav > ul > li {
+    font-size: 20px;
+    /* 가상요소의 기준영역이 되기 위해 */
+    position: relative;
+}
+.nav > ul > li > a {
+    display: block;
+    color: #202020;
+    text-decoration: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* 앨범 nav에 적용되는 스타일 속성 */
+.nav > ul > li > a.texton {
+    font-weight: 700;
+    cursor: default;
+}
+
+.nav > ul > li:not(:first-child)::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    width: 1px;
+    border-left: 1px solid #202020;
+}
+/* 정규, ep 앨범 이미지 */
+.album {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.album > img {
+    width: 50%;
+    height: 50%;
+    max-width: 350px;
+    max-height: 350px;
+}
+.textbox {
+    margin-left: 50px;
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+}
+.textbox > h3 {
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+.textbox > ol {
+    margin-top: 30px;
+    font-size: 18px;
+    height: 220px;
+    overflow: scroll;
+}
+.textbox > ol::-webkit-scrollbar {display: none;}
+
+.textbox > ol > li:not(:last-child) {
+    margin-bottom: 25px;
+}
+/* 타이틀 곡 TITLE 로고 */
+.title {
+    background-image: url(../images/title_logo.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 40px;
+}
+.title1 {background-position: 50px 5px;}
+.title2 {background-position: 110px 5px;}
+.title3 {background-position: 100px 5px;}
+.title4 {background-position: calc(100% - 70px) 5px;}
+.title5 {background-position: 90px 5px;}
+/* 정규 앨범 */
+#studio {
+    margin-top: 100px;
+}
+/* ep */
+#ep {
+    margin-top: 150px;
+}
+#ep > .album:not(:first-of-type) {
+    margin-top: 100px;
+}
+#ep > div:nth-of-type(odd) {
+    background-color: #f0f0f0;
+    background-size: 1920px 400px;
+}
+#ep > div:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+#ep > div:nth-of-type(even) > .textbox {
+    margin-left: 0;
+    margin-right: 50px;
+    text-align: right;
+}
+
+/* 싱글 */
+#single {
+    margin-top: 150px;
+}
+.gridwrap {
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 30%);
+    grid-gap: 50px;
+}
+.gridwrap > div.griditem {
+    max-width: 350px;
+    text-align: center;
+    border: 1px solid #808080;
+}
+.gridwrap > div.griditem > img {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+}
+.gridwrap > div.griditem > span {
+    display: block;
+    margin: 20px 0;
+    font-size: 18px;
+}
+.gridwrap.hide {
+    display: none;
+}
+
+/* more 버튼 */
+#more {
+    background-color: transparent;
+    width: 100px;
+    height: 30px;
+    display: block;
+    margin: 50px auto 0 auto;
+    padding: 5px 10px;
+    border: 2px solid #202020;
+    cursor: pointer;
+}
+#more:active {
+    background-color: #f0f0f0;
+}
+
+
+
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+/* 메뉴 버튼 오버레이 */
+#overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(255,255,255,0.8);
+
+    /* 처음에는 보이지 않도록 설정 */
+    display: none;
+    cursor: pointer;
+}
+#overlay > nav > ul {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    width: 100px;
+}
+#overlay > nav > ul > li:hover {
+    background-image: url(../images/silica-gel-small.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 20px;
+}
+
+#overlay > nav > ul > li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+#overlay > nav > ul > li > a {
+    color: #202020;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* footer */
+#footer {
+    height: 50px;
+    background-color: #202020;
+    color: #fff;
+    text-align: right;
+    line-height: 3em;
+
+    margin-top: 150px;
+}

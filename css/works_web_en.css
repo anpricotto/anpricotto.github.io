@@ -1,0 +1,23 @@
+#section1 > div > ul > li {
+    padding-left: 20px;
+}
+
+#section3 > div > h2 {
+    padding-top: 25px;
+}
+
+#section4 > div > h2 {
+    padding-top: 25px;
+    text-align: right;
+}
+#section5 > p {
+    width: 560px;
+}
+#section6 > p {
+    width: 520px;
+}
+
+.keywords > li {
+    padding-left: 0;
+}
+

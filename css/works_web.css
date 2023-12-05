@@ -1,0 +1,174 @@
+body {
+    background-color:#fbf5e5;
+    font-family: 'Noto Sans KR', 'San-Serif';
+    color: #202020;
+}
+#header {
+    font-size: 25px;
+    background-color: #fff;
+    line-height: 2.5;
+    text-align: center;
+    height: 2.5em;
+    border-bottom: 3px solid #202020;
+
+    position: relative;
+}
+/* back 버튼 */
+#back {
+    /* a 요소 기본 스타일 속성 제거 */
+    color: #202020;
+    text-decoration: none;
+    text-align: right;
+
+    position: absolute;
+    right: 20px;
+
+    font-size: 20px;
+    line-height: 3;
+
+    width: 65px;
+    background-image: url(../images/works_back.png);
+    background-repeat: no-repeat;
+    background-position: -2px 37px;
+}
+#back:hover {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 769px) {
+
+    #fix {
+        width: 960px;
+        margin: 0 auto;
+    }
+
+    /* 공통 스타일 속성 */
+    .section {margin-top: 100px;}
+    .h2 {
+        font-size: 25px;
+        font-weight: 500;
+    }
+    .p {
+        font-size: 1rem;
+        margin-top: 25px;
+        line-height: 1.6;
+    }
+    .clickword {display: none;}
+    .keywords {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .keywords > li {
+        font-size: 14px;
+        border: 2px solid #202020;
+        border-radius : 15px;
+        line-height: 2;
+        padding-left: 10px;
+        text-align: center;
+    }
+
+    .keywords > li:nth-child(1) {width: 230px; margin-right: 40px;}
+    .keywords > li:nth-child(2) {width: 360px; margin-right: 40px;}
+    .keywords > li:nth-child(3) {width: 230px;}
+
+
+    /* section 1 - 애플 메인 이미지 */
+    #section1 {
+        margin-top: 150px;
+        display: flex;
+    }
+
+    #section1 > img {
+        max-width: 400px;
+        max-height: 701px;
+    }
+
+    #section1 > div.wrap {
+        margin-top: 50px;
+        margin-left: 70px;
+    }
+    /* 공통 스타일 속성에서 제외, 스타일 값 덮어쓰기 */
+    #section1 > div.wrap > ul {
+        display: block;
+        margin-top: 45px;
+    }
+
+    #section1 > div.wrap > ul > li {
+        text-align: left;
+        width: 350px;
+        margin-bottom: 10px;
+    }
+
+    /* section 2 - 롤링배너 */
+    #section2 {
+        margin-top: 100px;
+    }
+    #section2 > div {
+        display: flex;
+        justify-content: space-around;
+    }
+    #section2 > div > div > img {
+        width: 600px;
+    }
+    #section2 > div > div.wrap {
+        margin-top: 50px;
+        margin-left: 29px;
+    }
+
+    /* section 3 - 타임보드 */
+    #section3 {
+        margin-top: 100px;
+    }
+    #section3 > div > div > img {float: right; width: 750px;}
+    #section3 > div > div > h2 { padding-top: 50px;}
+    #section3 > div > div > p {margin-top: 25px;}
+
+    /* section 4 - 타임보드2 */
+    #section4 {
+        margin-top: 100px;
+    }
+    #section4 > div > div > img {float: left; width: 750px; margin-right: 19px;}
+    #section4 > div > div > h2 {padding-top: 50px;}
+    #section4 > div > div > p {
+        margin-top: 25px;
+        text-align: right;
+    }
+
+    /* section 5 - 여행사 메인 이미지 */
+    #section5 {margin-top: 100px;}
+    #section5 > div > img {
+        width: 800px;
+        display: block;
+        margin: 0 auto;
+    }
+    #section5 > div > h2 {
+        margin-top: 30px;
+        text-align: center;
+    }
+    #section5 > div > p {
+        margin: 20px auto 0 auto;
+        text-align: center;
+        width: 400px;
+    }
+
+
+    /* section 6 - 스타벅스 이벤트 배너 */
+    #section6 {margin-top: 100px;}
+    #section6 > div > img {
+        width: 800px;
+        display: block;
+        margin: 0 auto;
+    }
+    #section6 > div > h2 {
+        margin-top: 30px;
+        text-align: center;
+    }
+    #section6 > div > p {
+        margin: 20px auto 0 auto;
+        text-align: center;
+        width: 480px;
+    }
+    #fix {margin-bottom: 100px;}
+
+} /* media query (뷰포트 너비 >= 769px)*/
