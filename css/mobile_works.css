@@ -1,4 +1,9 @@
 @media screen and (max-width: 768px) {
+    body {
+        /* 웹 스크롤방지 해제 */
+        overflow: visible;
+    }
+
     /* 흰색 페이지 */
     #page {
         width: 90%;
@@ -32,6 +37,7 @@
         background-image: url(../images/menu_button.png);
         animation: slideleft 1s ;
     }
+
     #toggle > span {
         position: absolute;
         width: 1px;
@@ -50,7 +56,9 @@
         margin-right: 20px;
         transform: translate(calc(50% + 20px));
         padding: 15px 0;
-        background-color: rgba(223, 204, 251, 0.8);
+        background-color: #ffeeee;
+        opacity: 0.8;
+
         z-index: 100;
 
         text-align: right;
@@ -66,7 +74,7 @@
         margin-bottom: 0;
     }
     #menu > li > a {
-        color: #404040;
+        color: #202020;
     }
     /*--------------------------------------------------------------------------------------------*/
     #fix {
@@ -125,13 +133,66 @@
         left: 20px;
     }
     /* 푸터 영역 */
+    #footer {
+        /* 웹 display:none 해제 */
+        display: block;
+
+        background-color: #fff8e9;
+        height: 100px;
+    }
     #footer > ul {
+        display: flex;
         justify-content: center;
+        align-items: center;
+        height: 100%;
     }
     #footer > ul > li {
         width: 20%;
         max-width: 65px;
-        margin-right: 0;
+        height: 100%;
+
         background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
     }
+    #footer > ul > li:nth-child(1) {background-image: url(../images/footer_insta.png);}
+    #footer > ul > li:nth-child(2) {background-image: url(../images/footer_pinterest.png);}
+    #footer > ul > li:nth-child(3) {background-image: url(../images/footer_github.png);}
+    #footer > ul > li:nth-child(4) {background-image: url(../images/footer_mail.png);}
+
+    #footer > ul > li > a {
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+    }
+    #heart {
+        width: 70%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    #heart > path {
+        fill: transparent;
+        stroke-width: 2px;
+        stroke: #d7443e;
+    }
+    #heart:hover > path {
+        animation: fillheart 3s infinite;
+        cursor: pointer;
+    }
+    @keyframes fillheart {
+        0%,50%,100% {fill: transparent;}
+        25%,75% {fill: #d7443e;}
+    }
+
+    /* SNS 글자 브라우저 화면에서 숨기고, 스크린 리더기에서는 보이도록 설정 */
+    #footer > ul > li > a > span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+    }
+
+
 } /* media query (뷰포트 너비 <= 768px)*/

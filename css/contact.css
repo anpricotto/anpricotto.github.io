@@ -1,15 +1,15 @@
 
 body {
-    background-color:#dfccfb;
+    background-image: url(../images/background_pink.jpg);
     font-family: 'Noto Sans KR', 'San-Serif';
-    color: #202020;
+    color: #333;
 }
 
 /* 흰색 페이지 */
 #page {
-    background-color:#ffffff;
+    background-color:#fffafa;
     width: 1400px;
-    border-radius: 40px 40px 0 0;
+    border-radius: 40px;
 
     margin: 50px auto 20px auto;
     overflow: hidden;
@@ -20,14 +20,15 @@ body {
     justify-content: space-between;
     align-items: stretch;
 
-    border-bottom: 2px solid #202020;
+    border-bottom: 2px solid #ffacac;
     padding: 35px;
     padding-bottom: 0;
 }
 
 #header > h1 {
-    width: 300px;
-    margin-left: 20px;
+    width: 200px;
+    padding-left: 20px;
+    padding-top: 10px;
     animation: slideright 1s;
 }
 #header > h1 > a {
@@ -57,39 +58,38 @@ body {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: #202020;
+    color: #333;
     font-size: 20px;
 
     animation: slideleft 1s ;
 }
 
 /* 메뉴 버튼 */
-#toggle {
-    display: none;
-}
+#toggle {display: none;}
 
 #menu {display: flex;}
 
 /* #header > div > ul > li { */
 #menu > li {
-    font-size: 25px;
-    border: 2px solid #202020;
+    font-size: 20px;
+    border: 2px solid #ffacac;
     border-bottom: none;
     border-radius: 20px 20px 0 0;
     margin-left: -1px;
     overflow: hidden;
+
+    padding: 10px 10px 5px 10px;
 }
 #menu > li:last-child {
-    border-bottom: 4px solid white;
-    margin-bottom: -2px;
+    border-bottom: 4px solid #fffafa;
+    margin-bottom: -3px;
 }
 
 #menu > li > a {
     display: block;
-    padding: 8px;
 
     text-decoration: none;
-    color: #202020;
+    color: #333;
     animation: slideup 1s;
 }
 
@@ -109,7 +109,7 @@ body {
 
 /* 폭 고정 */
 #fix {
-    width:1200px;
+    width: 1200px;
     max-width: 100%;
     margin: 0 auto;
     animation: fadein 1.5s;
@@ -140,7 +140,7 @@ body {
 }
 #sendlist {
     height: 1.6em;
-    border-bottom: 3px solid #000;
+    border-bottom: 2px solid #333;
     overflow: hidden;
 }
 #sendlist > ul {
@@ -192,9 +192,25 @@ body {
     left: 15px;
 }
 #planet > ul > li:nth-child(5) {
-    background-image: url(../images/footer_heart.png);
     right: 61px;
     bottom: 45px;
+}
+#heart {
+    width: 50px; height: 100%;
+    box-sizing: border-box;
+}
+#heart > path {
+    fill: #fffafa;
+    stroke-width: 2px;
+    stroke: #d7443e;
+}
+#heart:hover > path {
+    animation: fillheart 3s infinite;
+    cursor: pointer;
+}
+@keyframes fillheart {
+    0%,50%,100% {fill: transparent;}
+    25%,75% {fill: #d7443e;}
 }
 
 #planet > ul > li > a {

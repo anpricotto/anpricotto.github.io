@@ -1,4 +1,5 @@
 $(function(){
+    var $html = $('html');
     // send me 롤링
     var DURATION = 2500;
     var $sendList = $('#sendlist > ul');
@@ -8,17 +9,10 @@ $(function(){
     var mql = window.matchMedia('screen and (max-width: 768px)');
     var timer = null;
 
+    // 새로고침하면 페이지 가장 상단으로 이동
+    $html.animate({scrollTop: 0},10);
+    toggle();
 
-    // 토글 메뉴 클릭하면 메뉴 보이도록
-    $('#toggle').on('click',function(){
-        if ($menu.is(':hidden') && !$menu.is(':animated')) {
-            $menu.css({marginRight : '-100%'}).show().animate({marginRight: 20},300);
-        } else {
-            $menu.animate({marginRight : '-100%'},300,function(){
-                $menu.hide();
-            });
-        };
-    });
 
     execute();
 
@@ -35,6 +29,15 @@ $(function(){
     mql.addEventListener("change",function(){
         execute();
         window.clearInterval(timer);
+
+        // 브라우저 화면 크기가 변하면 페이지 가장 상단으로 이동
+        $html.animate({scrollTop: 0},10);
+
+        if (mql.matches == false) {
+            $menu.attr('style','display:flex');
+        } else if (mql.matches) {
+            $menu.attr('style','display:none');
+        };
     });
 
     function execute (){
@@ -62,5 +65,17 @@ $(function(){
         };
     }
 
+    function toggle (){
+        // 토글 메뉴 클릭하면 메뉴 보이도록
+        $('#toggle').on('click',function(){
+            if ($menu.is(':hidden')) {
+                $menu.css({marginRight : '-100%'}).show().animate({display: 'block', marginRight: 20},300);
+            } else if (!$menu.is(':hidden')) {
+                $menu.animate({marginRight : '-100%'},300,function(){
+                    $menu.hide();
+                });
+            };
+        });
+    }
 
 }); // .onready

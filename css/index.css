@@ -1,15 +1,16 @@
 
 body {
-    background-color:#dfccfb;
+    background-image: url(../images/background_pink.jpg);
+    background-size: cover;
     font-family: 'Noto Sans KR', 'San-Serif';
-    color: #202020;
+    color: #333;
 }
 
 /* 흰색 페이지 */
 #page {
-    background-color:#ffffff;
+    background-color:#fffafa;
     width: 1400px;
-    border-radius: 40px 40px 0 0;
+    border-radius: 40px;
 
     margin: 50px auto 20px auto;
     overflow: hidden;
@@ -20,14 +21,15 @@ body {
     justify-content: space-between;
     align-items: stretch;
 
-    border-bottom: 2px solid #202020;
+    border-bottom: 2px solid #ffacac;
     padding: 35px;
     padding-bottom: 0;
 }
 
 #header > h1 {
-    width: 300px;
-    margin-left: 20px;
+    width: 200px;
+    padding-left: 20px;
+    padding-top: 10px;
     animation: slideright 1s;
 }
 #header > h1 > a {
@@ -57,41 +59,39 @@ body {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: #202020;
+    color: #333;
     font-size: 20px;
 
     animation: slideleft 1s ;
 }
 
 /* 메뉴 버튼 */
-
 #toggle {display: none;}
 
-/* #header > div > ul { */
-#menu {
-    display: flex;
-}
+#menu {display: flex;}
 
 /* #header > div > ul > li { */
 #menu > li {
-    font-size: 25px;
-    border: 2px solid #202020;
+    font-size: 20px;
+    border: 2px solid #ffacac;
     border-bottom: none;
     border-radius: 20px 20px 0 0;
     margin-left: -1px;
     overflow: hidden;
+
+    padding: 10px 10px 5px 10px;
 }
+
 #menu > li:first-child {
-    border-bottom: 4px solid white;
-    margin-bottom: -2px;
+    border-bottom: 4px solid #fffafa;
+    margin-bottom: -3px;
 }
 
 #menu > li > a {
     display: block;
-    padding: 8px;
 
     text-decoration: none;
-    color: #202020;
+    color: #333;
     animation: slideup 1s;
 }
 
@@ -110,23 +110,27 @@ body {
 }
 /* 폭 고정 */
 #fix {
-    width:1200px;
+    width: 1200px;
     max-width: 100%;
     margin: 0 auto;
 }
 
-/* 같은 형태의 테두리를 가진 박스들 스타일 속성 지정 */
-.content-box {
-    border: 2px solid #202020;
-    border-radius: 20px;
-    background-color: #ffffff;
+/* h2요소들 공통 스타일 속성 */
+.h2 {
+    font-family: 'Sabon','Times New Roman', serif;
+    font-size: 50px;
+    font-weight: 600;
+    margin-left : 40px;
+    margin-bottom: 50px;
+    color: #333;
 }
 
 /* section 1 - 자기소개 영역 */
 #introduce > h2 {
+    font-family: 'Sabon','Times New Roman', serif;;
     margin-left: 40px;
     display: flex;
-    font-size : 80px;
+    font-size : 60px;
     line-height: 1.8em;
 }
 #tickerWrap {
@@ -135,22 +139,66 @@ body {
 }
 #tickerWrap > ul {
     margin-left: 20px;
-    color: #87abe8;
+    color: #7883c0;
+    color: #fcb0b3;
 }
 
 #wrap {
     display: flex;
     align-items: center;
     justify-content: space-around;
-
     margin: 45px 10px 0 10px;
+
+    background: url(../images/main_profile_gradient.png);
+
+    /* 3D 요소의 위치지정요소가 될 수 있도록 */
+    position: relative;
+}
+#wrap > div {
+    position: relative;
+
+    width: 450px;
+    height: 530px;
+}
+#profile {
+    position: absolute;
+}
+#profile_line {
+    position: absolute;
+    width: 450px;
+    height: 530px;
+    padding-top: 22px;
+}
+#profile_line > path {
+    fill: none;
+    stroke: #ffa9b5;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 5px;
+
+    stroke-dashoffset: 0;
+    stroke-dasharray: 200;
+
+    animation: drawline 5s linear infinite;
 }
 
-#introduce > img {
-    max-width: 325px;
-    max-height: 460px;
-    margin-right: 26px;
+@keyframes drawline {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: 1200;
+    }
 }
+
+#keyword {
+    font-size: 80px;
+    font-weight: 900;
+    color: #fffafa;
+    -webkit-text-stroke: 1px #ffa9b5;
+}
+
 
 #wrap > div:nth-child(2) {
     padding: 40px 75px;
@@ -172,253 +220,339 @@ body {
 .relative {position: relative;
     margin-right: 40px;
 }
-
-.blend {
+#donut {
     position: absolute;
     z-index: 1;
-}
-
-#blend1 {
-    top: -50px;
-    left: 55px;
-    animation: floatitem 2s infinite linear;
-    animation-delay: 1s;
-}
-#blend2 {
-    right: -160px;
-    bottom: 85px;
-    width: 110px;
-    animation: floatitem2 1500ms infinite linear;
-    animation-delay: 1s;
-}
-#blend3 {
-    bottom: 280px;
-    right: -700px;
-    width: 115px;
-    animation: floatitem2 1500ms infinite linear;
-    animation-delay: 1s;
-}
-#blend4 {
-    right: -140px;
-    bottom: -130px;
+    right: -100px;
+    bottom: -40px;
     width: 300px;
+
+    animation: floatitem 2s linear infinite;
 }
 
 @keyframes floatitem {
-    from {transform: translate(0, 0);}
-    50% {transform: translate(5px, 10px);}
-    to {transform: translate(0, 0);}
-}
-@keyframes floatitem2 {
     from {transform: translateY(0);}
     50% {transform: translateY(-20px);}
     to {transform: translateY(0);}
 }
 
 /* section 2 - skills 영역 */
-#skill {
-    position: relative;
-    width: 1100px;
-    height: 740px;
-    margin: 150px auto 0 auto;
-}
-.skills {
-    position: absolute;
-}
-.skills > h3 {
-    font-size: 20px;
-    font-weight: 500;
-}
 
-/* section 2 - skills - 경험 */
-#skill1 {
-    top:0;
-    right: 100px;
+#aboutme > ul > li > h3 {
+    height: 90px;
+    background-color: #f9caca;
 
-    width: 745px;
+    font-family: 'Young Serif Regular', serif;
+    font-size: 30px;
+    color: #fff;
 
-    display: flex;
-    justify-content: space-around;
+    line-height: 90px;
 
-    background-image: url(../images/main_arrow_right.png);
+    padding-left: 75px;
+    margin: 10px 50px 0 50px;
+
     background-repeat: no-repeat;
-    background-position: 170px 50px;
-}
-#skill1 > h3 {
-    margin: 22px 40px auto 40px;
-    width: 4rem;
-}
-#skill1 > ul {
-    margin: 20px 30px 20px 0;
+    background-position: 17px 24px;
+    background-size: 40px;
 
-    display: flex;
-    justify-content: space-between;
-}
-#skill1 > ul > li {
-    font-size: 1rem;
-    margin-right: 60px;
+    /* 가상요소의 위치지정요소로 설정 */
+    position: relative;
 }
 
-#skill1 > ul > li:nth-child(1) {width: 123px;}
-#skill1 > ul > li:nth-child(2) {width: 212px;}
-#skill1 > ul > li:nth-child(3) {width: 80px;}
-
-#skill1 > ul > li > span {
+#aboutme > ul > li > h3::after {
+    content: "";
     display: block;
-    font-size: 1rem;
-}
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 8px 0 8px;
+    border-color: #fff transparent transparent transparent;
 
-.years {
-    font-size: 14px;
-    padding-bottom: 40px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-#skill1 > ul > li > span:not(:first-of-type) {
-    line-height: 1.2em;
-    margin-bottom: 8px;
-}
-/* section 2 - skills - 교육/학력 */
-#skill2 {
-    top: 105px;
-    left: 0;
+    position: absolute;
+    top: 40px;
+    right: 25px;
 
     z-index: 1;
-    width: 320px;
-    height: 320px;
-    box-sizing: border-box;
-    padding: 40px 48px 47px 82px;
+}
+#aboutme > ul > li > h3:hover {
+    cursor: pointer;
+}
+#aboutme > ul > li:first-child  > h3  {
+    margin-top: 0;
+    background-image: url(../images/main_li_1.png);
+}
+#aboutme > ul > li:nth-child(2) > h3  {background-image: url(../images/main_li_2.png);}
+#aboutme > ul > li:nth-child(3) > h3  {background-image: url(../images/main_li_3.png);}
+#aboutme > ul > li:nth-child(4)   > h3 {background-image: url(../images/main_li_4.png);}
 
-    border-radius: 50%;
-    background-color: #dfccfb;
-
-    background-image: url(../images/main_arrow_down.png);
-    background-repeat: no-repeat;
-    background-position: 50px center;
-}
-#skill2 > h3 {
-    margin-bottom: 17px;
-    background-image: url(../images/main_education.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position-x: 100px;
-}
-
-#skill2 > ul {
-    font-size: 1rem;
-    margin-left: 12px;
-}
-#skill2 > ul > li:not(:last-child) {
-    margin-bottom: 25px;
-}
-#skill2 > ul > li > span {
+.drawspan {
     display: block;
-}
+    padding-left: 75px;
 
-/* section 2 - skills - 강점 */
-#skill3 {
-    width: 230px;
-    top: 193px;
-    right: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    color: #f9caca;
 
-    padding: 30px 10px 30px 50px;
-}
-
-#skill3 > h3 {
-    margin-bottom: 20px;
-    background-image: url(../images/main_strength.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position-x: 50px;
-
-    line-height: 2rem;
-}
-
-#skill3 > ul > li {
-    font-size: 1rem;
-    line-height: 2rem;
+    clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+    transform-origin: center;
+    transition: 0.4s;
 
     background-repeat: no-repeat;
-    background-position: left;
-    background-size: contain;
-    padding-left: 50px;
-    margin-bottom: 20px;
+    background-position: 17px 24px;
+    background-size: 40px;
+
+    z-index: 2;
+
+    border: 2px solid #f9caca;
+    box-sizing: border-box;
 }
 
-#skill3 > ul > li:nth-child(1){background-image: url(../images/main_eng.png);}
-#skill3 > ul > li:nth-child(2){background-image: url(../images/main_teamwork.png);}
-#skill3 > ul > li:nth-child(3){background-image: url(../images/main_communication.png);}
-#skill3 > ul > li:nth-child(4){background-image: url(../images/main_creativity.png);}
-#skill3 > ul > li:nth-child(5){background-image: url(../images/main_adaptation.png);
-                                margin-bottom: none;}
+.clip {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
-/* section 2 - skills - 활용 툴 */
-#skill4 {
-    width: 560px;
-
-    right: 245px;
-    bottom: 50px;
-
-    padding: 26px 33px 20px 33px;
 }
-#skill4 > h3 {
-    margin-bottom: 20px;
+
+#aboutme > ul > li > h3 > span::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 8px 0 8px;
+    border-color: #f9caca transparent transparent transparent;
+
+    position: absolute;
+    top: 40px;
+    right: 25px;
 }
-#skill4 > ul {
+
+#aboutme > ul > li:nth-child(1) > h3 > span {background-image: url(../images/main_li_1_hover.png);}
+#aboutme > ul > li:nth-child(2) > h3 > span {background-image: url(../images/main_li_2_hover.png);}
+#aboutme > ul > li:nth-child(3) > h3 > span {background-image: url(../images/main_li_3_hover.png);}
+#aboutme > ul > li:nth-child(4) > h3 > span {background-image: url(../images/main_li_4_hover.png);}
+
+
+/* dropslide 메뉴 처음에는 보이지 않도록 설정 */
+.dropslide {
+    background-color: #fff;
+
+    border : 1px solid #b2b1b9;
+    border-top: none;
+    padding: 60px 0 60px 60px;
+    margin: 0 50px;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+    font-size: 16px;
+    animation: showdelay 2s;
+}
+
+@keyframes showdelay {
+    from {opacity: 0};
+    50% { opacity: 0};
+    to {opacity : 1};
+}
+
+#education {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row-reverse;
     align-items: center;
+    justify-content: space-evenly;
+    padding-left: 40px;
 }
 
-/* section 3 - journey */
-#journey {
-    margin-top: 150px;
+#education > img {
+    max-width: 350px;
+    animation: show 1.6s;
 }
-#journey > div {
-    width: 600px;
-    padding: 30px 0 30px 33px;
+
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-#journey > div > h3 {
-    font-size: 25px;
-    font-weight: 500;
-    margin-bottom: 15px;
+#education > ul {
+    width: 400px;
 }
-#journey > div > p {
+
+#education > ul > li {
+    margin-bottom: 40px;
+    line-height: 1.4;
+    font-size: 20px;
+}
+
+#education > ul > li:last-child {
+    margin-bottom: 0;
+}
+
+.edu {
+    display: flex;
+    gap: 30px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+.years {
+    font-family: 'Sabon','Times New Roman', serif;
+    font-style: italic;
+    font-weight: 600;
     font-size: 18px;
 }
-#journey > ul {
+.school {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
 
-    width: 900px;
-    margin: 130px auto 0 auto;
-}
-#journey > ul > li {
-    width: 250px;
-    background-position: center top;
-    background-repeat: no-repeat;
-    padding-top: 240px;
-}
-#journey > ul > li > span {
-    display: block;
-    line-height: 1.5em;
-    text-align: center;
-}
-#journey > ul > li > span:first-child {
     font-size: 20px;
     font-weight: 400;
+    margin-bottom: 15px;
 }
-#journey > ul > li > span:last-child {
-    font-size: 1rem;
-    margin-top: 15px;
-}
-#journey > ul > li:nth-child(1) {background-image: url(../images/main_lots_in_head.png);}
-#journey > ul > li:nth-child(2) {background-image: url(../images/main_eyes.png);}
-#journey > ul > li:nth-child(3) {background-image: url(../images/main_idea.png);}
+.school > span:first-child:after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #A4A4AB;
+    width: 250px;
+    height: 15px;
 
-/* section 4 - Works */
+    animation: toright1 2s ;
+}
+.status {
+    font-size: 17px;
+    margin-top: 18px;
+    padding-left: 10px;
+}
+
+@keyframes toright1 {
+    from {width: 0; opacity: 0.4;}
+    to {width: 250px; opacity: 1;}
+}
+@keyframes toright2 {
+    from {width: 0; opacity: 0.4;}
+    to {width: 420px; opacity: 1;}
+}
+
+/* ------------------------------ */
+#experience {
+    padding-left: 100px;
+}
+.exp {
+    display: flex;
+    gap: 30px;
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+.exp:first-of-type {
+    margin-top: 40px;
+}
+.exp:last-of-type {
+    height: 100px;
+}
+
+.exp > p.time {
+    font-family: 'Sabon','Times New Roman', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 18px;
+}
+.exp > p.info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.edu > div {
+    margin-top: 10px;
+}
+
+.pseudooff {
+    width: 6px;
+    height: 6px;
+    border: 1px solid #ffacac;
+    border-radius: 50%;
+
+    margin-top: 5px;
+}
+
+.pseudoon {
+    width: 6px;
+    height: 6px;
+    border: 1px solid #ffacac;
+    border-radius: 50%;
+
+    margin-top: 5px;
+
+    background-color: #ffacac;
+    box-shadow: 0px 0px 4px 5px #ffacac;
+
+    transition-duration: 200ms;
+}
+
+.info > span.company {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.info > span.company::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #A4A4AB;
+    width: 420px;
+    height: 15px;
+
+    animation: toright2 2s;
+}
+
+.info > span.region {
+    font-size: 17px;
+    margin-bottom: 18px;
+    padding-left: 10px;
+}
+.info > span.role {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+#personal {
+    padding: 50px 120px;
+}
+#personal > ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#personal > ul > li {
+    font-size: 18px;
+    line-height: 2.8;
+    border: 1px solid #A4A4AB;
+    border-radius: 30px;
+
+    padding: 0 25px 0 65px;
+
+    background-repeat: no-repeat;
+    background-position: 23px;
+    background-size: 30px;
+}
+
+#personal > ul > li:nth-child(1){background-image: url(../images/main_eng.png);}
+#personal > ul > li:nth-child(2){background-image: url(../images/main_teamwork.png);}
+#personal > ul > li:nth-child(3){background-image: url(../images/main_communication.png);}
+#personal > ul > li:nth-child(4){background-image: url(../images/main_creativity.png);}
+#personal > ul > li:nth-child(5){background-image: url(../images/main_adaptation.png);}
+
+#tools {
+    padding: 50px 60px;
+}
+#tools > ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* section 3 - Works */
 #works {
     margin-top: 150px;
 }
@@ -434,58 +568,266 @@ body {
 }
 /* wheel 회전목마 -> mobile_index.css에 미디어 쿼리를 이용해 작성 */
 
+/* section 4 - projects */
+.titles {
+    width: 1100px;
+    height: 60px;
+    border-top: 2px solid #ffacac;
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    color: #ffacac;
+    font-size: 25px;
+    line-height: 60px;
+    background-image: url(../images/logo_plus.png);
+    background-repeat: no-repeat;
+    background-position: 1060px 19px;
+
+}
+.date {
+    width: 600px;
+}
+#screenwrap {
+    /* screen 요소들의 위치지정요소로 설정 */
+    position: relative;
+}
+.dropslide2 {
+    display: flex;
+    gap: 100px;
+
+    padding: 40px;
+    margin: 0 30px;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+    font-size: 18px;
+    animation: showdelay 2s;
+}
+#coverscreen {
+    width: 500px;
+    height: 240px;
+    background-color: #333;
+
+    position: absolute;
+    z-index: 1;
+}
+#coverscreen > img {
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    animation: rotate 3s infinite;
+}
+@keyframes rotate {
+    from {transform: translate(-50%, -50%) rotate(0deg);}
+    50% {transform: translate(-50%, -50%) rotate(180deg);}
+    55% {transform: translate(-50%, -50%) rotate(180deg);}
+    95% {transform: translate(-50%, -50%) rotate(360deg);}
+    to {transform: translate(-50%, -50%) rotate(360deg);}
+}
+#coverscreen:before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 35px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url(../images/click_logo.png);
+    background-repeat: no-repeat;
+    animation: float 4s linear infinite;
+}
+@keyframes float {
+    from {margin-top: 0;}
+    50% {margin-top: 5px;}
+    to {margin-top: 0;}
+}
+#hiddenscreen {
+    width: 500px;
+    height: 240px;
+    overflow: scroll;
+}
+#hiddenscreen:before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 35px;
+    position: absolute;
+    top: 20px;
+    left: 240px;
+    transform: translateX(-50%);
+    background-image: url(../images/scroll_logo.png);
+    background-repeat: no-repeat;
+}
+/* 스크롤바 안 보이게 설정 */
+#hiddenscreen::-webkit-scrollbar {display: none;}
+
+.projectdetail > ul > li {
+    margin-bottom: 30px;
+}
+.projecttype {
+    display: flex;
+}
+.projecttype > div {
+    border: 1px solid #a0a0a0;
+    border-radius: 30px;
+    padding: 5px 13px;
+    margin-right: 15px;
+    line-height: 25px;
+}
+.detailwrap {
+    display: flex;
+    gap: 50px;
+}
+.h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.concept {
+    width: 200px;
+}
+.circlewrap {
+    display: flex;
+    gap: 10px;
+}
+.coloredcircle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#silicagel div.coloredcircle:nth-of-type(1) {
+    background-color: #fff;
+    border: 1px solid #333;
+}
+#silicagel div.coloredcircle:nth-of-type(2) {background-color: #d0d0d0;}
+#silicagel div.coloredcircle:nth-of-type(3) {background-color: #333;}
+
+.tools > ul {
+    display: flex;
+}
+.tools > ul > li {
+    border: 1px solid #a0a0a0;
+    border-radius: 30px;
+    padding: 5px 13px;
+    margin-right: 10px;
+    line-height: 25px;
+}
+.services > p {
+    width: 95%;
+    line-height: 1.6;
+}
+
+.projectdetail > button {
+    border: transparent;
+    background-color: transparent;
+
+    margin-top: 50px;
+}
+
+.projectdetail > button > a{
+    background-image: url(../images/next_logo.png);
+    background-repeat: no-repeat;
+    background-position: 180px;
+    padding: 15px 45px 13px 20px;
+    border: 2px solid #ffacac;
+    border-radius: 40px;
+    color: #ffacac;
+    text-decoration: none;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.projectdetail > button > a:hover {
+    background-color: #ffacac;
+    color: #fff;
+    background-image: url(../images/next_logo_white.png);
+}
+
+
+
+
 /* section 5 - email */
 #email > h3 {
-    font-size: 60px;
+    font-family: 'Sabon','Times New Roman', serif;
+    font-size: 50px;
+    font-weight: 600;
     margin-left : 40px;
+    margin-bottom: 50px;
     color: #303030;
 }
-#email > h3 > div {
-    background-image: url(../images/main_paper_plane.png);
-    background-repeat: no-repeat;
-    background-position: left center;
 
-    margin-top: 30px;
-    height: 2em;
-    overflow: hidden;
+#contact > ul {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    color: #ffacac;
+    background-color: #fffafa;
+    border: 2px solid #ffacac;
+    border-right: none;
+    border-left: none;
+    padding-left: 10px;
+
+    /* 페이지의 양쪽 끝에 붙도록 */
+    margin-left: -100px;
+    margin-right: -100px;
+}
+
+#contact > ul > li > a {
+    /* a 요소의 기본 스타일 속성 제거 */
+    font-weight: 400;
+    text-decoration: none;
+    color: #ffacac;
+
+    margin-right: 45px;
+    font-size: 20px;
+    text-align: center;
     line-height: 2;
 }
-#email > h3 > div > ul {
-    padding-left : 100px;
-}
-#email > div {
-    display: flex;
-    animation: marquee 5000ms linear infinite;
+#contact:hover {
+    cursor: pointer;
 }
 
-#email > div > p {
-    margin-top: 100px;
-    margin-right: 130px;
-    font-size: 100px;
+#rolling {
+    display: flex;
+    animation: marquee 10s linear infinite;
+    background-color: #ffacac;
+
+    /* 페이지의 양쪽 끝에 붙도록 */
+    margin-left: -100px;
+    margin-right: -100px;
+}
+#rolling > p {
+    margin-right: 45px;
+    font-size: 30px;
     text-align: center;
-    line-height: 1.2;
+    line-height: 2;
+}
+#rolling > p > a {
+    text-decoration: none;
+    color: #fffafa;
 }
 
 @keyframes marquee {
-    to {margin-left: -100%;}
+    to {margin-left: -100% ;}
+}
+#rolling:hover {
+    animation-play-state: paused;
+    background-color: #fffafa;
+    cursor: pointer;
+}
+#rolling:hover > p > a {
+    color: #ffacac;
 }
 
-#email > div:hover {
-    animation-play-state: paused;
-}
-#email > div > p:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    color:  #808080;
-}
-#email > div > p > a {
-    text-decoration: none;
-    color: #808080;
-}
 /* 푸터영역 */
 #footer {
-    margin-top: 150px;
-    background-color: #fff8e9;
     height: 100px;
 
     position: relative;
@@ -508,8 +850,23 @@ body {
 #footer > ul > li:nth-child(2) {background-image: url(../images/footer_pinterest.png);}
 #footer > ul > li:nth-child(3) {background-image: url(../images/footer_github.png);}
 #footer > ul > li:nth-child(4) {background-image: url(../images/footer_mail.png);}
-#footer > ul > li:nth-child(5) {background-image: url(../images/footer_heart.png);}
-
+#heart {
+    width: 50px; height: 100%;
+    box-sizing: border-box;
+}
+#heart > path {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: #d7443e;
+}
+#heart:hover > path {
+    animation: fillheart 3s infinite;
+    cursor: pointer;
+}
+@keyframes fillheart {
+    0%,50%,100% {fill: transparent;}
+    25%,75% {fill: #d7443e;}
+}
 #footer > ul > li > a {
     display: block;
     cursor: pointer;

@@ -1,0 +1,289 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+}
+/* 고정폭 1200px */
+.fixwidth {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 헤더 영역 */
+#header > div {
+    display: flex;
+    justify-content: center;
+}
+#h1 > a > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}
+#gnb {
+    display: flex;
+    width: 730px;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: 500;
+}
+#gnb > li > a {
+    color: #333;
+    text-decoration: none;
+    padding: 20px;
+    cursor: pointer;
+}
+/* gnb 메뉴의 submenu - 처음에는 안 보이도록 설정 */
+.submenu {
+    display: none;
+}
+
+#icon {
+    display: flex;
+    align-items: center;
+}
+#icon > li {
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    padding: 0 5px;
+}
+#icon > li > a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+}
+#icon > li:first-child {background-image: url(../images/logo_search.png);}
+#icon > li:nth-child(2) {background-image: url(../images/logo_login.png);}
+#icon > li:last-child {background-image: url(../images/logo_toggle.png);}
+
+/* 스크린 리더기에서만 읽히도록 */
+#icon > li > a > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}
+#slide {
+    overflow: hidden;
+}
+#slide > ul {
+    display: flex;
+    width: 300%;
+}
+#slide > ul > li > img {
+    width: 100%;
+}
+/* 공통 스타일 속성 */
+.sections {
+    margin-top: 100px;
+}
+.h2 {
+    font-size: 40px;
+    padding-left: 10px;
+    margin-bottom: 40px;
+}
+.textbox {
+    margin-top: 20px;
+    padding: 0 5px;
+}
+.h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+.loca ,.peri {
+    font-size: 18px;
+    line-height: 1.3;
+}
+/* ----------------------------------------- */
+/* 전시 */
+#exhibition > div > ul {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* 교육/행사 */
+#education > div > ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+#education > div > ul > li {
+    flex: 1;
+}
+
+#education > div > ul > li > img {
+    width: 100%;
+}
+
+/* 관람안내, 오시는 길 */
+#info > div {
+    display: flex;
+    gap: 20px;
+}
+#info > div > div:first-child {flex: 2;}
+#info > div > div:last-child {flex: 3;}
+
+/* 오시는 길 지도 */
+#info > div > div:last-child > iframe {
+    width: 100%;
+    height: 400px;
+
+}
+#detail {
+    background-color: #f9f9f9;
+    padding: 35px 25px 20px;
+}
+
+#detail > div > h5 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+#info1 {
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+#info1 > p > span {
+    line-height: 1.4;
+}
+.strong {
+    display: inline-block;
+    width: 150px;
+    font-weight: 500;
+}
+#info2 {
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+#info2 > p > span {
+    line-height: 1.6;
+}
+#detail > p {
+    text-align: right;
+    margin-bottom: 25px;
+}
+#detail > p > a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* news */
+#newstitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+#newstitle > a {
+    color: #616be2;
+    text-decoration: none;
+}
+#newswrap {
+    display: flex;
+}
+#newswrap > li {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 25px;
+}
+#newswrap > li > div {
+    height: 290px;
+}
+.date {
+    font-size: 45px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+.newsh {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.context {
+    font-size: 14px;
+    line-height: 1.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+#newswrap > li > p {
+    display: flex;
+    justify-content: right;
+}
+#newswrap > li > p > a {
+    display: block;
+    width: 28px;
+    height: 9px;
+    margin-top: 20px;
+    background-image: url(../images/button_more.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#newswrap > li > p > a > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}
+
+/* footer */
+#footer {
+    background-color: #0c0c0c;
+    color: #ececec;
+}
+#newsletter {
+    padding-top: 25px;
+    display: flex;
+    gap: 25px;
+}
+#newsletter > p {
+    padding-left: 70px;
+    background-image: url(../images/sema_newsletter.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+
+    font-size: 20px;
+}
+#newsletter > div {
+    width: 80%;
+}
+#subscribe {
+    display: flex;
+    line-height: 3;
+    margin-bottom: 10px;
+}
+#subscribe > textarea {
+    flex: 5;
+    height: 30px;
+    border: 3px solid #ececec;
+}
+#subscribe > button {
+    /* 버튼요소 기본 스타일 속성 제거 */
+    background-color: #ececec;
+    border: none;
+    color: #0c0c0c;
+
+}

@@ -1,15 +1,41 @@
 $(function(){
+
+    var $html = $('html');
     // section 1 - I'm ticker롤링
     var DURATION = 2500;
     var $jobList = $('#tickerWrap > ul');
+
+    // section 2 - About me 서랍 애니메이션/ 가상요소
+    var $edu = $('.edu');
+    var $school = $('.school');
+    var $exp = $('.exp');
+    var $info = $('.info');
+
+    var $pseudo1 = $('<div></div>').attr({'class':'pseudooff','id':'pseudo'}).insertBefore($school);
+    var $pseudo2 = $('<div></div>').attr('class','pseudooff').insertBefore($info);
+    var $drawers = $('#aboutme > ul > li');
+    var $dropslide = $('.dropslide');
+    var $h3 = $('#aboutme > ul > li > h3');
+
     // 페이지 스크롤 이벤트
     var $window = $(window);
     var $sections = $('#fix > section');
-    // section 5 - email ticker롤링
-    var $sendList = $('#email > h3 > div > ul');
+
+    // section 4 - project 가상요소 colored circle & 서랍 애니메이션
+    var $circlewrap = $('<div></div>').attr({'class':'circlewrap'}).insertAfter($('.colors > h4'));
+    var $circles = $('<div></div>').attr({'class':'coloredcircle'}).appendTo($circlewrap);
+    $circles.clone().insertAfter($circles);
+
+    var $projectdrawers = $('#projects > ul > li');
+    var $dropslide2 = $('.dropslide2');
+
+
+
+
+
     // section 5 - email 복사/ 롤링
-    var $email = $('#email > div > p')
-    var $emailList = $('#email > div');
+    var $email = $('#rolling > p')
+    var $emailList = $('#rolling');
     var $menu = $('#menu');
     var mql = window.matchMedia('screen and (max-width: 768px)');
 
@@ -20,17 +46,37 @@ $(function(){
     var emailtimerWeb = null;
 
 
+    // 새로고침하면 페이지 가장 상단으로 이동
+    // $html.animate({scrollTop: 0},10);
+    toggle();
 
-    // 토글 메뉴 클릭하면 메뉴 보이도록
-    $('#toggle').on('click',function(){
-        if ($menu.is(':hidden') && !$menu.is(':animated')) {
-            $menu.css({marginRight : '-100%'}).show().animate({marginRight: 20},300);
-        } else {
-            $menu.animate({marginRight : '-100%'},300,function(){
-                $menu.hide();
-            });
+    mql.addEventListener("change",function(){
+        console.log('변경된 코드 실행');
+
+        // 브라우저 화면 크기가 변하면 페이지 가장 상단으로 이동
+        $html.animate({scrollTop: 0},10);
+
+        if (mql.matches == false) {
+            $menu.attr('style','display:flex');
+        } else if (mql.matches) {
+            $menu.attr('style','display:none');
         };
+
+
     });
+
+    function toggle (){
+        // 토글 메뉴 클릭하면 메뉴 보이도록
+        $('#toggle').on('click',function(){
+            if ($menu.is(':hidden')) {
+                $menu.css({marginRight : '-100%'}).show().animate({display: 'block', marginRight: 20},300);
+            } else if (!$menu.is(':hidden')) {
+                $menu.animate({marginRight : '-100%'},300,function(){
+                    $menu.hide();
+                });
+            };
+        });
+    }
 
     // 처음에는 보이지 않도록 설정
     $sections.css('opacity', '0').data('appear', false);
@@ -55,13 +101,12 @@ $(function(){
     });
 
     function execute(){
-        console.log('변경된 코드 실행');
 
         jobListtimer = window.setInterval (function(){
             if (mql.matches) {
                 $jobList.css({'margin-top':'-54px','transition-duration':'400ms'});
             } else {
-                $jobList.css({'margin-top':'-144px','transition-duration':'400ms'});
+                $jobList.css({'margin-top':'-108px','transition-duration':'400ms'});
             }
             window.setTimeout(function () {
                 $jobList.removeAttr('style');
@@ -103,8 +148,102 @@ $(function(){
                     };
                 };
             });
+
+
+        }); // $window.onscroll
+
+        $dropslide.hide();
+
+        $drawers.each(function(){
+            var index = $(this).index();
+
+            $dropslide.data('drop',false);
+
+            onoff();
+
+            $(this).on('click',function(){
+
+                if (!$dropslide.eq(index).data('drop')){
+                    $dropslide.eq(index).slideDown().data('drop',true);
+                    $h3.eq(index).off().children('.drawspan').eq(index).addClass('clip');
+                } else if ($dropslide.eq(index).data('drop')){
+                    $dropslide.eq(index).slideUp().data('drop',false);
+                    $h3.children('.drawspan').eq(index).removeClass('clip');
+                    onoff();
+                }
+            });
+
+            function onoff (){
+                $h3.eq(index).on({
+                    mouseenter: function(){
+                        $(this).children('.drawspan').addClass('clip');
+                    },
+                    mouseleave: function(){
+                        $(this).children('.drawspan').removeClass('clip');
+                    }
+                });
+            }
+            $dropslide.on('click',function(event){
+                event.stopPropagation();
+            });
+
+        }); //$drawers.each
+
+        $edu.each(function(){
+            var eduIndex = $(this).index();
+            $(this).on({
+                mouseenter: function(){
+                    $pseudo1.eq(eduIndex).removeClass('pseudooff').addClass('pseudoon');
+
+                },
+                mouseleave: function(){
+                    $pseudo1.eq(eduIndex).removeClass('pseudoon').addClass('pseudooff');
+                }
+            });
         });
 
+        $exp.each(function(){
+            var expIndex = $(this).index();
+            $(this).on({
+                mouseenter: function(){
+                    $pseudo2.eq(expIndex).removeClass('pseudooff').addClass('pseudoon');
+                },
+                mouseleave: function(){
+                    $pseudo2.eq(expIndex).removeClass('pseudoon').addClass('pseudooff');
+                }
+            });
+        });
+
+
+        // section 4 - projects
+        $('#screenwrap').on('click',function(){
+            $('#coverscreen').toggle();
+        });
+
+        $dropslide2.hide();
+        $dropslide2.eq(0).show();
+
+        $projectdrawers.each(function(){
+            var index = $(this).index();
+
+            $dropslide2.data('drop',false);
+
+            $(this).on('click',function(){
+
+                if (!$dropslide2.eq(index).data('drop')){
+                    $dropslide2.eq(index).slideDown().data('drop',true);
+                } else if ($dropslide2.eq(index).data('drop')){
+                    $dropslide2.eq(index).slideUp().data('drop',false);
+                }
+            });
+            $dropslide2.on('click',function(event){
+                event.stopPropagation();
+            });
+
+        }); //$projectdrawers.each
+
+
+        // my works - wheel
         var $wheel = $('#wheel');
         // my works 작업물 슬라이드
         // 뷰포트의 너비가 768px보다 작을때, 5000ms마다 첫번째 작업물이 마지막으로 이동한다
@@ -114,22 +253,10 @@ $(function(){
                 },5000);
         };
 
-        // section 5 - email 롤링
-        if (mql.matches) {
-            emailtimerMobile= window.setInterval (function(){
-                $sendList.css({'margin-top':'-55px','transition-duration':'400ms'});
-                removeStyle();
-                },DURATION);
-        } else {
-            emailtimerWeb = window.setInterval (function(){
-                $sendList.css({'margin-top': '-120px','transition-duration':'400ms'});
-                removeStyle();
-                },DURATION);
-        };
-
         // section 5 - 이메일 복사/ 롤링
         if (mql.matches == false) {
-            $email.clone().appendTo($emailList).clone().appendTo($emailList);
+            $email.clone().appendTo($emailList).clone().appendTo($emailList)
+            .clone().appendTo($emailList).clone().appendTo($emailList).clone().appendTo($emailList).clone().appendTo($emailList);
 
             window.setInterval(function(){
                 $emailList.append($emailList.children(':first'));
@@ -139,11 +266,11 @@ $(function(){
         };
     }
 
-    function removeStyle (){
-        window.setTimeout(function(){
-                $sendList.removeAttr('style');
-                $sendList.find('li:eq(0)').appendTo($sendList);
-        },400);
-    }
+    // function removeStyle (){
+    //     window.setTimeout(function(){
+    //             $sendList.removeAttr('style');
+    //             $sendList.find('li:eq(0)').appendTo($sendList);
+    //     },400);
+    // }
 
 }); // .onready

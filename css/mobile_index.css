@@ -11,7 +11,7 @@
         position: relative;
     }
     #header > h1 {
-        width: 50%;
+        width: 30%;
         margin-left: 0;
     }
     #header > div {
@@ -50,7 +50,9 @@
         margin-right: 20px;
         transform: translate(calc(50% + 20px));
         padding: 15px 0;
-        background-color: rgba(223, 204, 251, 0.8);
+
+        background-color: #ffeeee;
+        opacity: 0.8;
 
         text-align: right;
     }
@@ -65,12 +67,16 @@
         margin-bottom: 0;
     }
     #menu > li > a {
-        color: #404040;
+        color: #333;
     }
     .content-box {
         border-width: 1px;
     }
 
+    /* h2요소들 공통 스타일 속성 */
+    .h2 {
+        font-size: 40px;
+    }
     /* section 1 - 자기소개 */
     #introduce > h2 {
         margin-left: 0;
@@ -94,145 +100,73 @@
     .relative {
         margin: 0;
     }
+    #wrap > div.relative {
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
     /* profile 사진 */
-    /* #wrap > div.relative > img { */
     #profile {
-        max-width: 70%;
         display: block;
-        margin: 20% auto;
+        max-width: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        margin-top: -70px;
     }
-    #wrap > div.content-box {
-        width: 80%;
-        padding: 5%;
-        margin: 0 auto;
+    #profile_line {display: none;}
+    #keyword {
         text-align: center;
+        font-size: 70px;
+        margin-top: 70px;
     }
-
-    #wrap > div > p:nth-of-type(1){
-        font-size: 16px;
-        line-height: 1.6;
+    #donut {
+        display: none;
     }
-
-    #wrap > div > p:nth-of-type(2){
-        font-size: 25px;
-        font-weight: 400;
-    }
-    /* 자기소개 - 요소들 배치 */
-    #blend1 {
-        width: 15%;
-    }
-    #blend2 {
-        width: 20%;
-        bottom: -50px;
-        right: 0;
-        animation: blend2 1500ms infinite linear;
-
-    }
-    @keyframes blend2 {
-        from {transform: translateY(0) rotate(50deg);}
-        50% {transform: translateY(-20px) rotate(50deg);}
-        to {transform: translateY(0) rotate(50deg);}
-    }
-    #blend3 {
-        width: 20%;
-        bottom: -20px;
-        left: 15px;
-    }
-    #blend4 {display: none;}
 
     /* section 2 - skills 영역 */
-    #skill {
-        width: 90%;
-        height: auto;
+    #aboutme > ul > li > h3 {
+        font-size: 20px;
+        line-height: 60px;
+        height: 60px;
+        background-size: 30px;
+        background-position: 15px 15px;
     }
-    #skill > div.skills {
-        position: relative;
+    #aboutme > ul > li > h3::after {
+        top: 25px;
     }
-    /* section 2 - skills 경험 */
-    #skill1 {
-        top: 0;
-        right: -10%;
-
-        width: 80%;
-        display: block;
-        padding: 10% 5%;
-        background-image: none;
+    .drawspan {
+        background-size: 30px;
+        background-position: 15px 15px;
     }
-    #skill1 > h3 {
-        margin: 0 0 0 10%;
-    }
-    #skill1 > ul {
-        display: block;
+    #aboutme > ul > li > h3 > span::after {
+        top: 25px;
     }
 
-    #skill1 > ul > li:nth-child(1),
-    #skill1 > ul > li:nth-child(2),
-    #skill1 > ul > li:nth-child(3) {
-        width: 90%;
-        margin-right: 0;
-        margin-bottom: 30px;
-        padding-left: 15%;
-        background-image: url(../images/main_dot.png);
-        background-repeat: no-repeat;
-        background-position: left top;
+    .dropslide {
+        padding: 20px;
     }
-    #skill1 > ul > li > span.years {
-        text-align: left;
-        padding-bottom: 0;
-    }
-    /* section 2 - skills 교육/학력 */
-    #skill2 {
-        top: -30px;
-        border-radius: 50px;
-        width: 70%;
-        padding: 10% 5%;
-        background-image: none;
-    }
-    #skill2 > h3 {
-        margin-bottom: 30px;
-    }
-    #skill2 > ul {
-        margin-left: 0;
-        padding-left: 10px;
-    }
-    #skill2 > ul > li {
-        background-image: url(../images/main_dot.png);
-        background-repeat: no-repeat;
-        background-position: left top;
-        padding-left: 30px;
-    }
-    /* section 2 - skills 강점 */
-    #skill3 {
-        width: 70%;
-        top: -45px;
-        right: -10%;
-    }
-    /* section 2 - skills 활용 툴 */
-    #skill4 {
-        width: auto;
-        top: -50px;
-        right: 0;
-        left: 0;
-    }
-    #skill4 > ul {
-        flex-wrap: wrap;
-    }
+    #education {
+        flex-direction: column;
 
-    /* section 3 - journey */
-    #journey > div {
-        width: 80%;
-        margin: 0 auto;
     }
-    #journey > ul {
-        display: block;
-        width: auto;
-        margin: 50px auto 0 auto;
+    #education > img {
+        max-width: 200px;
     }
-    #journey > ul > li {
-        margin: 40px auto 0 auto;
+    #education > ul {
+        width: 200px;
     }
-
-    /* section 4 - my work */
+    #education > ul > li {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    .school {
+        font-size: 18px;
+    }
+    .status {
+        font-size: 15px;
+    }
+    /* section 3 - my work */
     #works > h3 {
         width: 80%;
         font-size: 25px;
@@ -311,11 +245,14 @@
 
 @media screen and (min-width: 769px) {
     /* Works - 회전 목마 */
+    #wheelWrap {
+        margin-top: 150px;
+    }
     #wheel {
         position: relative;
         width: 340px;
         height: 440px;
-        margin: 150px auto 0 auto;
+        margin: 0 auto;
         transform-style: preserve-3d;
 
         animation: spin 30s infinite linear;

@@ -1,15 +1,18 @@
 
 body {
-    background-color:#dfccfb;
+    background-image: url(../images/background_pink.jpg);
     font-family: 'Noto Sans KR', 'San-Serif';
-    color: #202020;
+    color: #333;
+
+    /* 작업물 영역 이외의 스크롤 방지 */
+    overflow: hidden;
 }
 
 /* 흰색 페이지 */
 #page {
-    background-color:#ffffff;
+    background-color:#fffafa;
     width: 1400px;
-    border-radius: 40px 40px 0 0;
+    border-radius: 40px;
 
     margin: 50px auto 20px auto;
     overflow: hidden;
@@ -20,14 +23,15 @@ body {
     justify-content: space-between;
     align-items: stretch;
 
-    border-bottom: 2px solid #202020;
+    border-bottom: 2px solid #ffacac;
     padding: 35px;
     padding-bottom: 0;
 }
 
 #header > h1 {
-    width: 300px;
-    margin-left: 20px;
+    width: 200px;
+    padding-left: 20px;
+    padding-top: 10px;
     animation: slideright 1s;
 }
 #header > h1 > a {
@@ -57,38 +61,38 @@ body {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: #202020;
+    color: #333;
     font-size: 20px;
 
     animation: slideleft 1s ;
 }
 
 /* 메뉴 버튼 */
-#toggle {
-    display: none;
-}
+#toggle {display: none;}
+
 #menu {display: flex;}
 
 /* #header > div > ul > li { */
 #menu > li {
-    font-size: 25px;
-    border: 2px solid #202020;
+    font-size: 20px;
+    border: 2px solid #ffacac;
     border-bottom: none;
     border-radius: 20px 20px 0 0;
     margin-left: -1px;
     overflow: hidden;
+
+    padding: 10px 10px 5px 10px;
 }
 #menu > li:nth-child(2) {
-    border-bottom: 4px solid white;
-    margin-bottom: -2px;
+    border-bottom: 4px solid #fffafa;
+    margin-bottom: -3px;
 }
 
 #menu > li > a {
     display: block;
-    padding: 8px;
 
     text-decoration: none;
-    color: #202020;
+    color: #333;
     animation: slideup 1s;
 }
 
@@ -107,13 +111,13 @@ body {
 }
 /* 폭 고정 */
 #fix {
-    width:1200px;
+    width: 1400px;
     max-width: 100%;
     margin: 0 auto;
 }
 /*--------------------------------------------------------------------------------------------*/
 #works {
-    position:relative;
+    position: relative;
     height: 600px;
     overflow-y: scroll;
 }
@@ -121,7 +125,7 @@ body {
 #works::-webkit-scrollbar {display: none;}
 
 #works > li {
-    border: 3px solid #000;
+    border: 1px solid #333;
     width: 1000px;
     height: 500px;
 
@@ -134,10 +138,10 @@ body {
 #works > li > a {
     display: block;
 }
-#works > li:nth-child(1) {top: 120px; }
-#works > li:nth-child(2) {top: 320px; z-index: 1;}
-#works > li:nth-child(3) {top: 520px; z-index: 2;}
-#works > li:nth-child(4) {top: 720px; z-index: 3;}
+#works > li:nth-child(1) {top: 50px; }
+#works > li:nth-child(2) {top: 200px; z-index: 1;}
+#works > li:nth-child(3) {top: 350px; z-index: 2;}
+#works > li:nth-child(4) {top: 500px; z-index: 3;}
 /* #works > li:nth-child(5) {top: 920px; z-index: 4;} */
 
 #works > li:hover {
@@ -153,56 +157,5 @@ body {
 /*--------------------------------------------------------------------------------------------*/
 /* 푸터영역 */
 #footer {
-    background-color: #fff8e9;
-    height: 100px;
-}
-#footer > ul {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-}
-#footer > ul > li {
-    width: 57px;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: 20px;
-}
-#footer > ul > li:nth-child(1) {background-image: url(../images/footer_insta.png);}
-#footer > ul > li:nth-child(2) {background-image: url(../images/footer_pinterest.png);}
-#footer > ul > li:nth-child(3) {background-image: url(../images/footer_github.png);}
-#footer > ul > li:nth-child(4) {background-image: url(../images/footer_mail.png);}
-#footer > ul > li:nth-child(5) {
-    background-image: url(../images/footer_heart.png);
-    position: relative;    
-}
-
-#footer > ul > li > a {
-    display: block;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-}
-
-/* #footer > ul > li > button { */
-#heart {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-}
-.hearts {
-    position: absolute;
-}
-
-/* SNS 글자 브라우저 화면에서 숨기고, 스크린 리더기에서는 보이도록 설정 */
-#footer > ul > li > a > span {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
+    display: none;
 }
