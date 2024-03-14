@@ -1,13 +1,21 @@
+#education > ul > li {
+    height: auto;
+}
+
 #education > ul > li > p.years {
     font-size: 24px;
 }
-#education > ul > li > div {
-    padding-left: 10px;
-    font-size: 22px;
+
+.info > span.company {
+    line-height: 1.8;
+    margin-top: -10px;
 }
-#education > ul > li > div > p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.6;
-    margin-top: 5px;
+.info > span.company::after {
+    width: 500px;
+    animation: torighten 2s;
+}
+
+@torighten {
+    from {width: 0; opacity: 0.4;}
+    to {width: 500px; opacity: 1;}
 }

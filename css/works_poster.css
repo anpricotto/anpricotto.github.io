@@ -71,7 +71,7 @@ body {
 .wrap > ul > li {
     border: 2px solid #202020;
     border-radius: 15px;
-    padding-left: 10px;
+    padding-left: 20px;
     line-height: 2;
     margin-bottom: 10px;
 }

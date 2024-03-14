@@ -106,14 +106,20 @@
         border: 1px solid #202020;
         width: 100%;
         height: 100%;
+        position: static;
     }
     #works > li > a > img {
         width: 100%;
-        border-radius: 20px;
+        position: static;
     }
     #works > li:hover {
         transform: none;
     }
+
+    .workTitle {
+        display: none;
+    }
+
     .worksinfo {
         display: block;
     }
@@ -124,6 +130,8 @@
     }
     .worksinfo > p {
         font-size: 15px;
+        line-height: 1.2;
+        margin-bottom: 5px;
     }
     .title {
         font-size: 18px;

@@ -29,10 +29,6 @@ $(function(){
     var $projectdrawers = $('#projects > ul > li');
     var $dropslide2 = $('.dropslide2');
 
-
-
-
-
     // section 5 - email 복사/ 롤링
     var $email = $('#rolling > p')
     var $emailList = $('#rolling');
@@ -157,15 +153,24 @@ $(function(){
         $drawers.each(function(){
             var index = $(this).index();
 
-            $dropslide.data('drop',false);
-
             onoff();
 
             $(this).on('click',function(){
+                $dropslide.not(':eq(' + index + ')').slideUp().data('drop',false);
+                $h3.children('.drawspan').not(':eq(' + index + ')').removeClass('clip');
+                $h3.not(':eq(' + index + ')').on ({
+                    mouseenter: function(){
+                        $(this).children('.drawspan').addClass('clip');
+                    },
+                    mouseleave: function(){
+                        $(this).children('.drawspan').removeClass('clip');
+                    }
+                });
 
                 if (!$dropslide.eq(index).data('drop')){
                     $dropslide.eq(index).slideDown().data('drop',true);
                     $h3.eq(index).off().children('.drawspan').eq(index).addClass('clip');
+
                 } else if ($dropslide.eq(index).data('drop')){
                     $dropslide.eq(index).slideUp().data('drop',false);
                     $h3.children('.drawspan').eq(index).removeClass('clip');
@@ -242,16 +247,30 @@ $(function(){
 
         }); //$projectdrawers.each
 
+        // silicagel > photodump 끊임없이 올라가는 효과
+        var $photodump = $('#photodump');
+
+        $photodump.clone().addClass('dump2').insertAfter($photodump);
+        $photodump.addClass('dump1');
+
+        var $firstDump = $photodump.eq(0);
+        var $secondDump = $photodump.eq(1);
+
+        window.setInterval(function(){
+            $firstDump.removeClass('dump1').addClass('dump2').insertAfter($secondDump);
+        },10000);
+
+
 
         // my works - wheel
         var $wheel = $('#wheel');
         // my works 작업물 슬라이드
         // 뷰포트의 너비가 768px보다 작을때, 5000ms마다 첫번째 작업물이 마지막으로 이동한다
-        if (mql.matches) {
-            wheeltimer = window.setInterval(function(){
-                $wheel.append($wheel.children(':first'));
-                },5000);
-        };
+        // if (mql.matches) {
+        //     wheeltimer = window.setInterval(function(){
+        //         $wheel.append($wheel.children(':first'));
+        //         },5000);
+        // };
 
         // section 5 - 이메일 복사/ 롤링
         if (mql.matches == false) {

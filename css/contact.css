@@ -283,3 +283,17 @@ body {
     overflow: hidden;
     clip: rect(0,0,0,0);
 }
+
+
+@media screen and (min-width: 768px) and (max-width: 1599px) {
+    /* 흰색 페이지 */
+    #page {
+        width: 1200px;
+    }
+    /* 헤더는 그대로 유지 */
+
+    /* 폭 고정 */
+    #fix {
+        width: 1000px;
+    }
+} /* media query (769px < 뷰포트 너비 < 1600px ) */

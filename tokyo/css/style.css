@@ -1,0 +1,623 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DotGothic16&display=swap');
+@font-face {
+    font-family: 'DungGeunMo', monospace;
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'DungGeunMo', monospace;
+}
+#background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    width: 65%;
+    height: 70%;
+    background-color: #cacaca;
+    box-shadow: inset 2px 2px #fff, 2px 2px #000;
+}
+#page > header {
+    height: 48px;
+    background-color: #895ce6;
+    box-shadow: inset 2px 2px #fff, 2px 2px #000;
+    padding-left: 50px;
+    background-image: url(../images/neko.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    text-shadow: 1px 1px 1px #333;
+}
+#page > header > h1 {
+    line-height: 48px;
+    font-size: 40px;
+    color: #fff;
+}
+
+.close {
+    border: none;
+    background-color: #cacaca;
+    box-shadow: inset 2px 2px #fff, 2px 2px #000;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+
+    background-image: url(../images/close.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.close > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}
+
+#wrap {
+    display: flex;
+    height: 100%;
+}
+#aside {
+    width: 350px;
+    height: calc(100% - 58px);
+    padding: 20px 40px;
+    box-sizing: border-box;
+
+    margin-top: 5px;
+    margin-left: 5px;
+    border: 2px solid #333;
+
+    background-color: #dddddd;
+    font-size: 20px;
+    line-height: 1.8;
+}
+#aside > p {
+    font-size: 25px;
+    background-image: url(../images/file.png);
+    background-repeat: no-repeat;
+    background-position: 0 6px;
+    padding-left: 40px;
+}
+#aside > ul > li {
+    background-image: url(../images/under_category.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 10px 3px;
+    padding-left: 50px;
+}
+#aside > ul > li > a {
+    color: #333;
+    text-decoration: none;
+}
+#content {
+    width: calc(100% - 350px);
+    height: calc(100% - 58px);
+    margin-top: 5px;
+    margin-left: 5px;
+    border: 2px solid #333;
+    box-sizing: border-box;
+
+    background-color: #dddddd;
+    transition: 3s;
+}
+#content > header {
+    height: 35px;
+    text-align: center;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #333;
+}
+#content > header > h2 {
+    width: calc(100% - 70px);
+    margin-left: 35px;
+    font-size: 25px;
+    line-height: 35px;
+}
+#buttonwrap {
+    display: flex;
+    width: 70px;
+    margin-right: 20px;
+}
+#save, #favorite {
+    /* 버튼요소 기본 스타일 제거 */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#save {
+    background-image: url(../images/bookmark_empty.png);
+}
+#favorite {
+    background-image: url(../images/star_empty.png);
+}
+#save.on {
+    background-image: url(../images/bookmark_filled.png);
+}
+#favorite.on {
+    background-image: url(../images/star_filled.png);
+}
+
+#save > span, #favorite > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}
+
+/* article page */
+#article {
+    background-color: #000;
+    height: calc(100% - 46px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    color: #fff;
+}
+#pagewidth {
+    width: 96%;
+    margin: 5% 2% 100px 2%;
+}
+#pagewidth > div > img {
+    width: 100%;
+}
+#tokyo {
+    position: relative;
+}
+#tokyo > h3 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 100px;
+    color: #f098c0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -53%);
+
+    border: none;
+
+    text-align: center;
+    line-height: 1.4;
+}
+#tokyo > h3 > p {
+    font-size: 40px;
+}
+.theme {
+    position: relative;
+    margin-top: 100px;
+}
+.theme > h3 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 60px;
+
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 300;
+
+    width: 450px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.theme > img.mainimg {
+    margin-top: 150px;
+}
+.theme > img {
+    margin-top: 70px;
+}
+.theme::before {
+    content: "";
+    display: block;
+    width: 95%;
+    border-bottom: 1px solid #fff;
+    margin: 80px auto 0 auto;
+}
+.featured {
+    margin-top: 50px;
+}
+.featured > h4 {
+    font-size: 30px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.slides {
+    width: 90%;
+    margin: 0 5% 30px 5%;
+    overflow-x: scroll;
+}
+.slides > ul {
+    width: 166%;
+    display: flex;
+    overflow-x: hidden;
+}
+.slides > ul > li {
+    width: 20%;
+    background-color: #FAF5FF;
+    border: #dcdcdc 1px solid;
+    color: #333;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    margin-right: 10px;
+
+    text-align: center;
+}
+.slides > ul > li:last-of-type {
+    margin: 0;
+}
+.slides > ul > li > img {
+    border-radius: 20px;
+    width: 90%;
+    margin: 20px auto 10px auto;
+    overflow-x: hidden;
+}
+.slides > ul > li > p {
+    font-size: 20px;
+    width: 90%;
+    margin: 10px auto 20px auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #fd7283;
+    /* border-radius: 10px; */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7c79d9;
+    border-radius: 10px;
+}
+
+.keywords > h4 {
+    font-size: 25px;
+    padding-left: 50px;
+    margin-bottom: 20px;
+
+    background-image: url(../images/icon_location.png);
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+}
+
+.keywords > ul {
+    padding-left: 30px;
+    font-size: 20px;
+
+    display: flex;
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+/* 바탕화면 영역 */
+#guide {
+    width: 700px;
+    height: 50px;
+
+    padding: 10px;
+    background-color: #f0f0f0;
+
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: center;
+}
+#guide > p:first-child {
+    margin-bottom: 20px;
+}
+/* 아이콘 영역 */
+.icon {
+    position: absolute;
+
+    width: 80px;
+    height: 120px;
+
+    background-repeat: no-repeat;
+    background-size: 80px;
+
+    cursor: pointer;
+}
+.icon > p {
+    font-size: 25px;
+    text-align: center;
+
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#memoicon {
+    background-image: url(../images/icon_memo.png);
+
+    top: 130px;
+    left: 150px;
+}
+#tokyoicon {
+    background-image: url(../images/neko.png);
+
+    top: 50%;
+    left: 50%;
+}
+#musicicon {
+    background-image: url(../images/music.png);
+
+    bottom: 300px;
+    right: 150px;
+}
+#recycleicon {
+    background-image: url(../images/recycle-bin.png);
+
+    bottom: 550px;
+    right: 80px;
+}
+.hiddenpage {
+    position: absolute;
+    background-color: #cacaca;
+
+    /* display: none; */
+}
+.hiddenpage > h4 {
+    font-size: 25px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+
+    display: flex;
+    align-items: center;
+}
+.hiddenpage > h4 > p {
+    width: calc(100% - 30px);
+    padding-left: 30px;
+}
+.hiddenpage > h4 > button {
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+}
+
+#memo {
+    width: 300px;
+    height: 400px;
+
+    top: 30px;
+    left: 20px;
+
+    z-index: 3;
+}
+#memo > textarea {
+    width: 94%;
+    height: 330px;
+    margin: 0 2%;
+
+    font-family: 'DungGeunMo', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+#music {
+    width: 400px;
+
+    z-index: 4;
+
+    top: 100px;
+    right: 80px;
+
+    padding: 0 5px 5px;
+}
+#musicwrap {
+    box-shadow: 1px 1px #fff, inset 1px 1px #333;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#musicwrap > img {
+    width: 100px;
+    margin-left: 10px;
+
+    box-shadow: inset 2px 2px #333;
+}
+#musicinfo {
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 400;
+    line-height: 2;
+}
+#time {
+    font-size: 15px;
+}
+/* music 페이지의 audio 컨트롤러 스타일 속성 */
+
+#audio {
+    display: none;
+}
+
+#audiocontrols {
+    width: 250px;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+/* play,pause 버튼 */
+#audiocontrols > button {
+    width: 25px;
+    height: 25px;
+    box-shadow: inset 2px 2px #fff, 2px 2px #525053;
+    border: 2px solid #000;
+    border-radius: 2px;
+
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: center;
+
+    cursor: pointer;
+}
+#audiocontrols > button > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}
+#playmusic {
+    background-image: url(../images/play_music.png);
+}
+#pausemusic {
+    background-image: url(../images/pause_music.png);
+}
+#progress {
+    width: 160px;
+    height: 20px;
+
+    border-radius: 5px;
+
+    appearance: none;
+}
+#progress::-webkit-progress-bar {
+    background-color: #cacaca;
+    box-shadow: 1px 1px #fff, inset 1px 1px #333;
+}
+#progress::-webkit-progress-value {
+    background-color: #7c79d9;
+    box-shadow: inset 1px 1px #fff;
+}
+
+/* 휴지통 */
+#recycle {
+    width: 470px;
+
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 5;
+    padding: 0 5px 5px;
+}
+#alert {
+    box-shadow: 1px 1px #fff, inset 1px 1px #333;
+    padding: 10px;
+    text-align: center;
+}
+#alert > p {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 22px;
+    line-height: 5;
+    padding-left: 70px;
+
+    background-image: url(../images/icon_alert.png);
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: 10px;
+}
+#alert > button {
+    font-family: 'DungGeunMo', monospace;
+    font-size: 16px;
+    font-weight: 200;
+    width: 60px;
+    height: 27px;
+    margin-bottom: 10px;
+    box-shadow: inset 2px 2px #fff, 1px 1px #525053;
+    border: 2px solid #000;
+    border-radius: 2px;
+
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: center;
+
+    cursor: pointer;
+}
+#alert > button :hover {
+
+}
+
+/* 푸터영역 */
+#footer {
+    position: absolute;
+    display: flex;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    background-color: #dddddd;
+
+}
+#start {
+    font-family:'DungGeunMo', sans-serif;
+    font-size: 25px;
+    line-height: 43px;
+    box-shadow: inset 2px 2px #fff, 2px 2px #000;
+
+    width: 120px;
+    height: 43px;
+    background-image: url(../images/window95.png);
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 5px 10px;
+    margin: 3px 0 3px 5px;
+    padding-left: 35px;
+
+    cursor: pointer;
+}
+#hidden {
+    display: none;
+}
+#welcome {
+    width: 300px;
+    height: 43px;
+    box-shadow:  2px 2px #fff, inset 2px 2px #000;
+
+    margin-left: 20px;
+    font-size: 25px;
+    line-height: 36px;
+    padding: 5px 0 5px 10px;
+    box-sizing: border-box;
+    margin-top: 3px;
+}
+#clock {
+    position: absolute;
+    right: 10px;
+
+    width: 100px;
+    height: 43px;
+    box-shadow:  2px 2px #fff, inset 2px 2px #000;
+
+    font-size: 20px;
+    line-height: 36px;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 3px;
+}

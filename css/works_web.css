@@ -171,4 +171,23 @@ body {
     }
     #fix {margin-bottom: 100px;}
 
+    /* section 7 - 벤앤제리스 메인 배너 */
+    #section7 {margin-top: 100px;}
+    #section7 > div > img {
+        width: 800px;
+        display: block;
+        margin: 0 auto;
+    }
+    #section7 > div > img:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    #section7 > div > h2 {
+        margin-top: 30px;
+        text-align: center;
+    }
+    #section7 > div > p {
+        margin: 20px auto 0 auto;
+        text-align: center;
+        width: 480px;
+    }
 } /* media query (뷰포트 너비 >= 769px)*/

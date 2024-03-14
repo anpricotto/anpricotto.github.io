@@ -13,6 +13,11 @@
     }
     /* 공통 스타일 속성 */
     .section {margin-top: 100px;}
+
+    #section1 > div > ul > li {
+        padding-left: 0;
+    }
+
     #fix > section:first-child {
         margin-top: 50px;
     }

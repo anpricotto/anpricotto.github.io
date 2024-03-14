@@ -1,4 +1,10 @@
 @media screen and (max-width: 768px) {
+    @font-face {
+        font-family: 'EliceDigitalBaeum-Bd';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
     /* 흰색 페이지 */
     #page {
         width: 90%;
@@ -43,6 +49,7 @@
         /* 처음에는 안 보이게 설정 */
         display: none;
 
+        z-index: 100;
         position: absolute;
         top: 100%;
         right: 50%;
@@ -77,6 +84,7 @@
     .h2 {
         font-size: 40px;
     }
+
     /* section 1 - 자기소개 */
     #introduce > h2 {
         margin-left: 0;
@@ -97,8 +105,9 @@
         width: 100%;
         margin: 0;
     }
-    .relative {
-        margin: 0;
+    #relative {
+        width: 100%;
+        height: 400px;
     }
     #wrap > div.relative {
         height: 100%;
@@ -108,21 +117,49 @@
     /* profile 사진 */
     #profile {
         display: block;
-        max-width: 70%;
+        max-width: 90%;
+        max-height: 400px;
         left: 50%;
         transform: translateX(-50%);
-
-        margin-top: -70px;
+        margin-bottom: 30px;
     }
     #profile_line {display: none;}
-    #keyword {
-        text-align: center;
-        font-size: 70px;
-        margin-top: 70px;
-    }
+
     #donut {
         display: none;
     }
+    #cardwrap {
+        display: none;
+    }
+    #mobilecard {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        border: 1px solid #d0d0d0;
+        border-radius: 20px;
+        padding: 40px 20px 20px 20px;
+        background-image: url(../images/mobilecard_bg.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    #mobilecard > p {
+        text-align: right;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    #mobilecard > p#cardkeyword {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    #mobilecard > p#cardname {
+        font-size: 30px;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+    #mobilecard > p#cardemail {
+        font-size: 16px;
+    }
+
 
     /* section 2 - skills 영역 */
     #aboutme > ul > li > h3 {
@@ -131,6 +168,7 @@
         height: 60px;
         background-size: 30px;
         background-position: 15px 15px;
+        margin: 10px 20px 0 20px;
     }
     #aboutme > ul > li > h3::after {
         top: 25px;
@@ -145,28 +183,112 @@
 
     .dropslide {
         padding: 20px;
+        margin: 0 20px;
     }
     #education {
         flex-direction: column;
 
     }
     #education > img {
-        max-width: 200px;
+        display: none;
     }
     #education > ul {
         width: 200px;
     }
     #education > ul > li {
-        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 50px;
         font-size: 16px;
+        display: block;
+    }
+    #education > ul > li:last-child {
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    .edu > div {
+        display: none;
     }
     .school {
         font-size: 18px;
+        display: block;
+        margin-top: 15px;
+    }
+    .school > span:first-child:after {
+        margin-bottom: 10px;
+        width: 90%;
+        animation: torightmobile 2s;
+    }
+    @keyframes torightmobile {
+        from {
+            width: 0;
+            opacity: 0.4;
+        }
+        to {
+            width: 90%;
+            opacity: 1;
+        }
     }
     .status {
         font-size: 15px;
+        padding-left: 0;
     }
+
+    #experience {
+        padding-left: 40px;
+        font-size: 16px;
+    }
+    #experience > ul {
+        width: 90%;
+    }
+    #experience > ul > li {
+        display: block;
+    }
+    #experience > ul > li:last-child {
+        margin-top: 30px;
+    }
+    #experience > ul > li > div {
+        display: none;
+    }
+    .info > span.company::after {
+        width: 95%;
+        animation: torightmobile2 2s;
+    }
+    @keyframes torightmobile2 {
+        from {
+            width: 0;
+            opacity: 0.4;
+        }
+        to {
+            width: 95%;
+            opacity: 1;
+        }
+    }
+    .exp > p.time {
+        margin-bottom: 20px;
+    }
+    .exp > p.info {
+        padding: 0;
+    }
+    .info > span.region, .info > span.role {
+        padding: 0;
+    }
+
+    #personal {
+        padding: 20px 0;
+    }
+
+    #tools {
+        padding: 30px 10px;
+    }
+    #tools > ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
     /* section 3 - my work */
+    #works {
+        width: 100%;
+    }
     #works > h3 {
         width: 80%;
         font-size: 25px;
@@ -179,19 +301,23 @@
     @keyframes slide {
         to {margin-left: -80%;}
     } */
+    #wheelWrap {
+        width: 100%;
+        overflow-X: scroll;
+    }
+    #wheelWrap::-webkit-scrollbar {
+        display: none;
+    }
     #wheel {
         display: flex;
-        width: 500%;
+        width: 400%;
         aspect-ratio: 25/6;
         overflow: hidden;
-        margin-top: 50px;
+        margin-top: 20px;
         margin-left: 0;
-        animation: slide 5000ms linear infinite;
+        /* animation: slide 15000ms linear infinite; */
     }
-    @keyframes slide {
-        from {margin-left: 0;}
-        to {margin-left: -100%;}
-    }
+
     #wheel > li.wheel-item {
         width: 20%;
         margin: 0 1%;
@@ -206,18 +332,58 @@
         width: 100%;
         object-fit: cover;
     }
+    #swipe {
+        /* width: 100px; */
+        margin: 0 auto;
+        background-image: url(../images/logo_swipe.png);
+        background-repeat: no-repeat;
+        background-size: 100px;
+        background-position: center bottom;
+    }
+    #swipe > p {
+        padding-bottom: 30px;
+        text-align: center;
+    }
+
+    /* section 4 - project  */
+    .titles {
+        display: block;
+        width: 95%;
+        height: auto;
+        margin: 0 auto 30px auto;
+    }
+    .dropslide2 {
+        display: block;
+        padding: 0 0 40px 0;
+        margin: 0 0 30px 0;
+    }
+    .scrollscreen, .fixscreen {
+        width: 90%;
+        margin: 10px auto;
+    }
+    #screenwrap {
+        width: 90%;
+        margin: 0 auto;
+    }
+    #coverscreen {
+        width: 100%;
+    }
+    #hiddenscreen {
+        width: 100%;
+    }
+    .projectdetail {
+        width: 85%;
+        margin: 30px auto;
+    }
+    .tools > ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .projectdetail > button {
+        margin-top: 10px;
+    }
     /* section 5 - email */
-    #email > h3 {
-        font-size: 25px;
-    }
-    #email > h3 > div {
-        background-size: 40px;
-        line-height: 2.2;
-        margin-top: 15px;
-    }
-    #email > h3 > div > ul {
-        padding-left: 60px;
-    }
+
     #email > div {
         display: block;
         animation: none;
@@ -227,6 +393,9 @@
         margin-top: 50px;
         margin-right: 0;
         text-align: center;
+    }
+    #contact > ul {
+        display: none;
     }
     /* 푸터 영역 */
     #footer {
@@ -242,6 +411,9 @@
         background-size: 70%;
     }
 } /* media query (뷰포트 너비 <= 768px)*/
+
+
+
 
 @media screen and (min-width: 769px) {
     /* Works - 회전 목마 */
@@ -299,5 +471,9 @@
         transform: translateY(-20px) scale(1.1);
         transition: 500ms;
     }
+    #swipe {
+        display: none;
+    }
 
 } /* media query (뷰포트 너비 >= 769px) */
+

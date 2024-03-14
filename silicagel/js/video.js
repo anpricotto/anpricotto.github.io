@@ -5,7 +5,11 @@ $(function(){
     var $more = $('#more');
 
     var $videos = [
-        $('<iframe></iframe>').addClass('iframe').attr({width: "100%", height: "800px", src: "https://www.youtube.com/embed/0CZJZDPyAZY",
+        $('<iframe></iframe>').addClass('iframe').attr({width: "100%", height: "800px", src: "https://www.youtube.com/embed/DIPxnt5vnhU?feature=oembed",
+            title: '실리카겔 (Silica Gel) - T + Tik Tak Tok (feat. So!YoON!) [MV]',frameborder:'0'})
+        ,$('<iframe></iframe>').addClass('iframe').attr({width: "100%", height: "800px", src: "https://www.youtube.com/embed/9s_G8Dv25uI?si=slEcNcE7Gd5TCTG3",
+            title: '실리카겔 (Silica Gel) - Budland [MV]',frameborder:'0'})
+        ,$('<iframe></iframe>').addClass('iframe').attr({width: "100%", height: "800px", src: "https://www.youtube.com/embed/0CZJZDPyAZY",
             title: '실리카겔 (Silica Gel) - Realize [MV]',frameborder:'0'})
         ,$('<iframe></iframe>').addClass('iframe').attr({width: "100%", height: "800px", src: "https://www.youtube.com/embed/Re1neDPgExQ",
             title: "실리카겔 (Silica Gel) - Mercurial [MV]", frameborder:'0'})

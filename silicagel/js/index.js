@@ -7,9 +7,6 @@ $(function(){
     var $toggle = $('.toggle');
     var $overlay = $('#overlay');
     var $image = $('#box > img');
-    var $loadPage = $('#loadPage');
-    var $logoblack = $('#logoblack');
-    var $logowhite = $('#logowhite');
     var $email = $('#email');
 
     var $checkbox = $('.checkbox > input');
@@ -22,39 +19,8 @@ $(function(){
     // 뷰포트 높이
     var windowHeight = $window.height();
 
-
     // 새로고침을 하면 첫 페이지로 이동
     $html.animate({scrollTop: 0},10);
-
-    // 초기 로딩화면
-    // 로딩화면이 보여지는 동안 스크롤이 안 보이도록 (뒤의 요소들이 보이지 않도록) 설정한다.
-    // 5000ms에 걸쳐 #logowhite가 회전, 40배로 커진다. → css animation으로 처리// 4000초가 되었을 때 사라지도록 함.
-    // 4000ms가 지나면 #loadPage의 배경색이 변한다.
-    // 동시에 #logowhite는 보이지 않게 설정한다.
-    // #logoblack이 40배 크기에서 1배 크기로 4000ms에 걸쳐 줄어든다.
-    // 시간이 지난 후 #loadPage는 사라진다.
-
-    // $loadPage.on('click',function(){
-    //     $(this).hide();
-    // });
-    // $loadPage.hide();
-    // $('#page').show();
-    $('#page').hide();
-    window.setTimeout(function(){
-        // #logowhite은 보이지 않게 설정한다.
-        $logowhite.css('display','none');
-        // #logowhite가 30배 크기에서 1배 크기로 3000ms에 걸쳐 줄어든다.
-        $logoblack.show().css('animation','logoblack 2000ms');
-        // 4000ms가 지나면 #loadPage의 배경색이 변한다.
-        $loadPage.css({backgroundColor:'#fff',transitionDuration: '1000ms'});
-
-
-        window.setTimeout(function(){
-            $loadPage.hide();
-            $('#page').show();
-        },3000)
-    },4000);
-
 
     // 페이지 하나씩 넘어가는 효과
     // 1. 마우스 휠 버튼을 굴리면
@@ -77,30 +43,31 @@ $(function(){
             if (pageIndex >= lastPageIndex) return;
             console.log ('pageIndex =' + pageIndex);
             console.log('lastPageIndex = ' + lastPageIndex);
-            // 1.2. 다음 페이지로 스크롤 한다.
+        // 1.2. 다음 페이지로 스크롤 한다.
             pageIndex++;
 
-            // 첫 페이지를 제외하고 (-1), 각 페이지의 aside 요소를 오른쪽에서 왼쪽으로 보이도록 슬라이드
-            $aside.eq(pageIndex - 1).not('.asideMove').addClass('asideMove');
+            // 첫 페이지를 제외하고 (-5), 각 페이지의 aside 요소를 오른쪽에서 왼쪽으로 보이도록 슬라이드
+            $aside.eq(pageIndex - 5).not('.asideMove').addClass('asideMove');
             // 지나간 페이지의 aside 요소는 다시 숨김
-            $aside.eq(pageIndex - 2).removeClass('asideMove').css('transition','transform 1000ms');
+            $aside.eq(pageIndex - 6).removeClass('asideMove').css('transition','transform 1000ms');
 
             // 만약 마지막 페이지라면(푸터가 보일 때), 마지막에서 2번째 페이지의 aside는 사라지지 않게 한다.
             if (pageIndex == lastPageIndex)
-                $aside.eq(pageIndex - 2).addClass('asideMove');
+                $aside.eq(pageIndex - 9).addClass('asideMove');
 
         }
+
         // 1.3. 마우스 휠 버튼을 위쪽으로 굴릴 경우
         else if (event.deltaY <= 0) {
             // 첫 페이지일 경우 이벤트 종료
             if (pageIndex <= 0) return;
             console.log ('pageIndex =' + pageIndex);
             console.log('lastPageIndex = ' + lastPageIndex);
-            // 1.4. 이전 페이지로 스크롤 한다.
+        // 1.4. 이전 페이지로 스크롤 한다.
             pageIndex--;
 
-            // 첫 페이지를 제외하고 (-1), 각 페이지의 aside 요소를 오른쪽에서 왼쪽으로 보이도록 슬라이드
-            $aside.eq(pageIndex - 1).not('.asideMove').addClass('asideMove');
+            // 첫 페이지를 제외하고 (-5), 각 페이지의 aside 요소를 오른쪽에서 왼쪽으로 보이도록 슬라이드
+            $aside.eq(pageIndex - 5).not('.asideMove').addClass('asideMove');
             $aside.eq(pageIndex).removeClass('asideMove');
         };
 
@@ -127,7 +94,43 @@ $(function(){
     //------------------------------페이지 하나씩 넘어가는 효과------------------------------
 
 
-    // page 2 - 이미지 슬라이드 with indicator
+    // page 3 - photodump 끊임없이 올라가는 효과
+    var $photodump = $('.photodump');
+
+    $photodump.clone().addClass('dump2').insertAfter($photodump);
+    $photodump.addClass('dump1');
+
+    var $firstDump = $photodump.eq(0);
+    var $secondDump = $photodump.eq(1);
+
+    window.setInterval(function(){
+        $firstDump.removeClass('dump1').addClass('dump2').insertAfter($secondDump);
+    },10000);
+
+    // page 4 - 아이즈매거진 서브이미지 변경 효과
+    var $magslide = $('#eyesmag > ul');
+
+    window.setInterval (function(){
+        $magslide.find('li:eq(2)').animate({'opacity':'0'},1500);
+        window.setTimeout(function(){
+            $magslide.find('li:eq(2)').prependTo($magslide);
+            $magslide.find('li:eq(1)').css({'opacity':'1'});
+        },1500);
+    },3000);
+
+    // page 5 - 코스모폴리탄 이미지 슬라이드 효과
+    var $cosmoslide = $('#imgwrap > ul');
+
+
+    window.setInterval (function(){
+        $cosmoslide.css({'transform':'translateX(-20%)','transition-duration':'2000ms'});
+        window.setTimeout(function () {
+            $cosmoslide.removeAttr('style');
+            $cosmoslide.find('li:eq(0)').appendTo($cosmoslide);
+        },2000);
+    },2500);
+
+    // page 6 - 이미지 슬라이드 with indicator
     var $albumList = $('#albumList > ul');
     var $albumLength = $albumList.children().length;
     var albumIndex = 0;
