@@ -21,10 +21,27 @@
                     <aside id="aside">
                         <p>Tokyo</p>
                         <ul>
-                            <li><a href="#asakusa"># Asakusa</a></li>
-                            <li><a href="#shibuya"># Shibuya</a></li>
-                            <li><a href="#"># Shinjuku</a></li>
-                            <li><a href="#"># Ginza</a></li>
+                            <li>
+                                <a href="#spot" class="GNBMenu">도쿄 관광 명소</a>
+                                <ul class="submenu">
+                                    <li><a href="#asakusa">아사쿠사</a></li>
+                                    <li><a href="#shibuya">시부야</a></li>
+                                    <li><a href="#shinjuku">신주쿠</a></li>
+                                    <li><a href="#ginza">긴자</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#outskirt">도쿄 근교 명소</a>
+                            </li>
+                            <li>
+                                <a href="#transportation" class="GNBMenu">교통 안내</a>
+                                <ul class="submenu">
+                                    <li><a href="#subway">지하철 티켓</a></li>
+                                    <li><a href="#bus">버스 안내</a></li>
+                                    <li><a href="#tickets">교통 승차권</a></li>
+                                    <li><a href="#fromairport">공항에서 오는 길</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </aside>
                     <section id="content">
@@ -44,91 +61,8 @@
                                 <div class="theme" id="asakusa">
                                     <h3>Asakusa</h3>
                                     <img class="mainimg" src="./images/asakusa_main.jpg" alt="asakusa landscape">
-                                    <img src="./images/tokyo_asakusa.png" alt="asakusa_wheretogo">
+                                    <!-- <img src="./images/tokyo_asakusa.png" alt="asakusa_wheretogo"> -->
 
-                                    <div class="featured">
-                                        <h4>Events in Asakusa :</h4>
-                                        <div class="slides">
-                                            <ul>
-                                                <li>
-                                                    <img src="./images/sanja_matsuri.jpg" alt="Sanja Matsuri">
-                                                    <p>Sanja Matsuri</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/samba_carnival.jpg" alt="Samba Carnival">
-                                                    <p>Samba Carnival</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/tori_no_ichi.jpg" alt="Tori-no-ichi">
-                                                    <p>Tori-no-ichi</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/sumida_river_firework.jpg" alt="Sumida River Fireworks">
-                                                    <p>Sumida River Fireworks</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/hozuki_ichi.jpg" alt="Hozuki Ichi">
-                                                    <p>Hozuki Ichi</p>
-                                                </li>
-                                            </ul>
-                                        </div> <!--/.slide-->
-                                    </div> <!--/.featured-->
-
-                                    <div class="featured">
-                                        <h4>Shopping :</h4>
-                                        <div class="slides">
-                                            <ul>
-                                                <li>
-                                                    <img src="./images/nakamise.jpg" alt="Nakamise">
-                                                    <p>Nakamise</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/mokuhankan.jpg" alt="Mokuhankan">
-                                                    <p>Mokuhankan</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/asakusa_rox.jpg" alt="Asakusa ROX">
-                                                    <p>Asakusa ROX</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/asakusa_ekimise.jpg" alt="Asakusa Ekimise">
-                                                    <p>Asakusa Ekimise</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/kappabashi_kitchenware_town.jpg" alt="Kappabashi Kitchenware Town">
-                                                    <p>Kappabashi Kitchenware Town</p>
-                                                </li>
-                                            </ul>
-                                        </div> <!--/.slide-->
-                                    </div> <!--/.featured-->
-
-                                    <div class="featured">
-                                        <h4>Hotels :</h4>
-                                        <div class="slides">
-                                            <ul>
-                                                <li>
-                                                    <img src="./images/asakusa_view_hotel.jpeg" alt="Asakusa View Hotel">
-                                                    <p>Asakusa View Hotel</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/the_kanzashi_tokyo_asakusa.jpg" alt="The Kanzashi Tokyo Asakusa">
-                                                    <p>The Kanzashi Tokyo Asakusa</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/ryokan_asakusa_shigetsu.jpg" alt="Ryokan Asakusa Shigetsu">
-                                                    <p>Ryokan Asakusa Shigetsu</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/the_gate_hotel_kaminarimon.jpg" alt="the gate hotel kaminarimon">
-                                                    <p>The Gate Hotel Kaminarimon</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/hotel_sunroute_asakusa.jpg" alt="Hotel Sunroute Asakusa">
-                                                    <p>Hotel Sunroute Asakusa</p>
-                                                </li>
-                                            </ul>
-                                        </div> <!--/.slide-->
-                                    </div> <!--/.featured-->
                                     <div class="keywords">
                                         <h4>Asakusa</h4>
                                         <ul>
@@ -137,67 +71,53 @@
                                             <li># History</li>
                                         </ul>
                                     </div>
+                                    <div id="asakusaWrap">
+                                        <div class="featured">
+                                            <div class="titleWrap logo1" >
+                                                <h4>센소지 절</h4>
+                                                <span>浅草寺</span>
+                                            </div> <!--/.titleWrap-->
+                                            <div class="infoWrap">
+                                                <p>628년에 창건된 도내에서 제일 오래된 사원. 커다란 등이 걸려있는 정문 '가미나리몬'으로 유명하다.
+                                                    세츠분카이, 4만 6천일(꽈리시장), 하고이타시장 등 많은 행사가 개최된다.
+                                                </p>
+                                                <img src="./images/sensoji.jpg" alt="센소지 사진">
+                                            </div> <!--/.infoWrap-->
+                                        </div> <!--/.featured-->
+                                        <div class="featured">
+                                            <div class="titleWrap logo2" >
+                                                <h4>아사쿠사 나카미세 상점가</h4>
+                                                <span>浅草仲見世商店街</span>
+                                            </div> <!--/.titleWrap-->
+                                            <div class="infoWrap">
+                                                <p>가미나리몬에서 호조몬까지 이어지는 약 250m 거리에는 에도시대부터 이어지는 약 90개의 상점이 늘어서 있다.
+                                                    그 당시 당내에서 노역이 부가된 사람들에게 참배 길에서의 영업이 허용된 것에서부터 시작되었다고 한다.
+                                                </p>
+                                                <img src="./images/nakamise.jpg" alt="나카미세 상점가 사진">
+                                            </div> <!--/.infoWrap-->
+                                        </div> <!--/.featured-->
+                                        <div class="featured">
+                                            <div class="titleWrap logo3" >
+                                                <h4>아사쿠사 연예홀</h4>
+                                                <span>浅草演芸ホール</span>
+                                            </div> <!--/.titleWrap-->
+                                            <div class="infoWrap">
+                                                <p>에도시대 초기에 안라쿠 안사쿠덴이란 사람이 무사들에게 재미난 이야기를 해주었던 것에서 시작된
+                                                    일본의 독자적인 예능 라쿠고를 비롯한 만재, 만담, 곡예, 흉내내기 등 다양한 종류의 예능을 즐길 수 있는
+                                                    대중 연예장.
+                                                </p>
+                                                <img src="./images/asakusa_entertainment_hall.jpg" alt="아사쿠사 연예홀 사진">
+                                            </div> <!--/.infoWrap-->
+                                        </div> <!--/.featured-->
+                                    </div> <!--/#asakusaWrap-->
+                                    <button class="more" id="more_asakusa" type="button">MORE</button>
                                 </div> <!--/#asakusa-->
+
                                 <div class="theme" id="shibuya">
                                     <h3>Shibuya</h3>
                                     <img class="mainimg" src="./images/shibuya_main.jpg" alt="shibuya landscape">
-                                    <img src="./images/tokyo_shibuya.png" alt="asakusa_wheretogo">
+                                    <!-- <img src="./images/tokyo_shibuya.png" alt="shibuya_wheretogo"> -->
 
-                                    <div class="featured">
-                                        <h4>Shopping :</h4>
-                                        <div class="slides">
-                                            <ul>
-                                                <li>
-                                                    <img src="./images/shibuya_109.jpg" alt="Shibuya 109">
-                                                    <p>Shibuya 109</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/shibuya_seibu.jpg" alt="Seibu Shibuya">
-                                                    <p>Seibu Shibuya</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/shibuya_loft.png" alt="Shibuya Loft">
-                                                    <p>Shibuya Loft</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/shibuya_mark_city.jpg" alt="Shibuya Mark City">
-                                                    <p>Shibuya Mark City</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/miyashita_park.jpg" alt="Miyashita Park">
-                                                    <p>Miyashita Park</p>
-                                                </li>
-                                            </ul>
-                                        </div> <!--/.slide-->
-                                    </div> <!--/.featured-->
-
-                                    <div class="featured">
-                                        <h4>Hotels :</h4>
-                                        <div class="slides">
-                                            <ul>
-                                                <li>
-                                                    <img src="./images/sequence_miyashita_park.jpg" alt="Sequence Miyashita Park">
-                                                    <p>Sequence Miyashita Park</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/mitsui_garden_hotel_jingu_gaien_tokyo_premier.jpg" alt="Mitsui Garden Hotel">
-                                                    <p>Mitsui Garden Hotel</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/all_day_place_shibuya.jpg" alt="All Day Place Shibuya">
-                                                    <p>All Day Place Shibuya</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/shibuya_stream_excel_hotel_tokyu.jpg" alt="Shibuya Stream Excel Hotel Tokyu">
-                                                    <p>Shibuya Stream Excel Hotel Tokyu</p>
-                                                </li>
-                                                <li>
-                                                    <img src="./images/hotel_indigo_tokyo_shibuya.jpg" alt="Hotel Indigo Tokyo Shibuya">
-                                                    <p>Hotel Indigo Tokyo Shibuya</p>
-                                                </li>
-                                            </ul>
-                                        </div> <!--/.slide-->
-                                    </div> <!--/.featured-->
                                     <div class="keywords">
                                         <h4>Shibuya</h4>
                                         <ul>
@@ -206,7 +126,106 @@
                                             <li># Drinking</li>
                                             <li># Dinning</li>
                                         </ul>
-                                    </div>
+                                    </div> <!--/.keywords-->
+                                    <div id="shibuyaWrap">
+                                        <div class="featured">
+                                            <div class="titleWrap logo1" >
+                                                <h4>시부야 스크램블 교차로</h4>
+                                                <span>渋谷駅前 スクランブル交差点</span>
+                                            </div> <!--/.titleWrap-->
+                                            <div class="infoWrap">
+                                                <p>도쿄에서 가장 유명한 장소 중의 하나로, 전 세계에서 가장 사람의 왕래가 잦은 교차로로 알려져 있다.
+                                                    사방에서 걸어오는 사람들이 교차하며, 혼잡하면서도 서로 부딪히지 않고 걸어간다. 교차로에서 이어진 시부야 센터가는
+                                                    젊은이들에게 인기가 많아 최신 가게나 레스토랑, 클럽 등이 모여 있다.
+                                                </p>
+                                                <img src="./images/shibuya_scramble.jpg" alt="시부야 스크램블 사진">
+                                            </div> <!--/.infoWrap-->
+                                        </div> <!--/.featured-->
+
+                                        <div class="featured">
+                                            <div class="titleWrap logo2" >
+                                                <h4>SHIBUYA109</h4>
+                                                <span>SHIBUYA109 渋谷店</span>
+                                            </div> <!--/.titleWrap-->
+                                            <div class="infoWrap">
+                                                <p>시부야를 상징하는 패션빌딩. 10대, 20대 여성을 중심으로 절대적인 인기를 얻고 있는 유행 아이템이 다채롭게 모여있다.
+                                                    정기적으로 리뉴얼을 실시하여 공용 구역까지 즐길 수 있는 설레임 가득한 시설이다.
+                                                </p>
+                                                <img src="./images/shibuya_109.jpg" alt="시부야109 사진">
+                                            </div> <!--/.infoWrap-->
+                                        </div> <!--/.featured-->
+
+                                        <div class="featured">
+                                            <div class="titleWrap logo3" >
+                                                <h4>시부야 스크램블 스퀘어</h4>
+                                                <span>渋谷スクランブルスクエア</span>
+                                            </div> <!--/.titleWrap-->
+                                            <div class="infoWrap">
+                                                <p>시부야 지구에서 가장 높은 약 230m, 지상47층 높이를 자랑하는 대규모 복합시설 '시부야 스크램블 스퀘어'가 2019년 11월 개장.
+                                                    총 200개 이상의 숍&레스토랑을 비롯해 비즈니스 커뮤니티 시설 'SHIBUYA QWS(시부야 큐즈)'와, 오피스, 전망 시설 'SHIBUYA SKY(시부야 스카이)'로
+                                                    구성되어 있다.
+                                                </p>
+                                                <img src="./images/shibuya_scramble_square.jpg" alt="시부야 스크램블 스퀘어 사진">
+                                            </div> <!--/.infoWrap-->
+                                        </div> <!--/.featured-->
+                                    </div> <!--/#shibuyaWrap-->
+
+                                    <button class="more" id="more_shibuya" type="button">MORE</button>
+
+                                </div> <!--/#shibuya-->
+
+                                <div class="theme" id="shinjuku">
+                                    <h3>Shinjuku</h3>
+                                    <img class="mainimg" src="./images/shinjuku_main.jpg" alt="shinjuku landscape">
+
+                                    <div class="keywords">
+                                        <h4>Shinjuku</h4>
+                                        <ul>
+                                            <li># CulturalHub</li>
+                                            <li># CityVibes</li>
+                                            <li># Entertain</li>
+                                            <li># NeonLights</li>
+                                        </ul>
+                                    </div> <!--/.keywords-->
+                                    <div id="shinjukuWrap">
+                                        <div class="featured">
+                                            <div class="titleWrap logo1" >
+                                                <h4>도쿄도청</h4>
+                                                <span>東京都庁</span>
+                                            </div> <!--/.titleWrap-->
+                                            <div class="infoWrap">
+                                                <p>도쿄도청은 일본을 대표하는 건축가 단게 겐조(丹下健三)가 설계한 도내 굴지의 랜드마크다.
+                                                    지상 45층의 전망실에서 훌륭한 경치를 관람할 수 있다. 제1본 청사 1층에는 도쿄 관광 정보 센터가 설치되어 있다.
+                                                </p>
+                                                <img src="./images/tokyo_cityhall.jpg" alt="도쿄도청 사진">
+                                            </div> <!--/.infoWrap-->
+                                        </div> <!--/.featured-->
+                                        <div class="featured">
+                                            <div class="titleWrap logo2" >
+                                                <h4>가부키초</h4>
+                                                <span>歌舞伎町</span>
+                                            </div> <!--/.titleWrap-->
+                                            <div class="infoWrap">
+                                                <p>'24시간 잠들지 않는 거리'라 불리는 신주쿠에서도 가장 활기 넘치는 번화가. 음식점, 바, 극장, 영화관, 게임센터, 노래방 등 오락시설이 밀집되어 있다.
+                                                </p>
+                                                <img src="./images/kabukicho.jpg" alt="가부키초 사진">
+                                            </div> <!--/.infoWrap-->
+                                        </div> <!--/.featured-->
+                                        <div class="featured">
+                                            <div class="titleWrap logo3" >
+                                                <h4>신주쿠 골든가</h4>
+                                                <span>新宿ゴールデン街</span>
+                                            </div> <!--/.titleWrap-->
+                                            <div class="infoWrap">
+                                                <p>세계2차대전의 혼란기에 탄생한 술집 골목. 지금도 좁은 골목 사이로 소소한 술집들이 모여있다. 1950년대의 모습을 간직한 가게, 젊은 점주가 참신한 컨셉으로 오픈한 가게 등 점포 수는 300개에 이른다.
+                                                </p>
+                                                <img src="./images/shinjuku_golden_street.jpg" alt="신주쿠 골든가 사진">
+                                            </div> <!--/.infoWrap-->
+                                        </div> <!--/.featured-->
+                                    </div> <!--/#shinjukuWrap-->
+
+                                    <button class="more" id="more_shinjuku" type="button">MORE</button>
+
                                 </div> <!--/#shibuya-->
                             </div><!--/#pagewidth-->
                         </article>

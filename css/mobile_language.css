@@ -1,9 +1,20 @@
-@media screen and (min-width: 360px) and (max-width: 600px) {
-    #background > div {
-        width: 340px;
-        height: 70%;
+@media screen and (min-width: 200px) and (max-width: 600px) {
+    #preface {
+        display: block;
+        padding-top: 18px;
+        line-height: 1.8;
     }
-
+    #preface > p:first-child::after {
+        width: 100px;
+        animation: torightmobile 2s;
+    }
+    @keyframes torightmobile {
+        from {width: 0;}
+        to {width: 100px;}
+    }
+    #preface > p {
+        padding-left: 40px;
+    }
     #background > div > img {
         max-width: 250px;
         max-height: 250px;

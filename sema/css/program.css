@@ -29,6 +29,9 @@ body {
     font-size: 22px;
     font-weight: 500;
 }
+#gnb > li {
+    position: relative;
+}
 #gnb > li > a {
     color: #333;
     text-decoration: none;
@@ -38,6 +41,21 @@ body {
 /* gnb 메뉴의 submenu - 처음에는 안 보이도록 설정 */
 .submenu {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px #888;
+    font-size: 16px;
+
+    width: 122%;
+    z-index: 10;
+}
+.submenu > li > a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 1em 1.2em;
 }
 
 #icon {

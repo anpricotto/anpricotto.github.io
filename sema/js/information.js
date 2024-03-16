@@ -1,7 +1,4 @@
 $(function(){
-    var $slide = $('#slide > ul');
-    var INTERVAL = 2500;
-    var DURATION = 500;
 
     // 프로그램에서 참조하는 요소를 미리 탐색
     var $GNBMenu = $('.GNBMenu');
@@ -14,14 +11,5 @@ $(function(){
         //4. click 이벤트가 발생한 요소의 다음에 나오는 요소가 화면에 안 보이는 상태라면 display: block 스타일 속성을 준다.
         $(this).next(':hidden').css('display','block');
     });
-
-    window.setInterval(function(){
-        $slide.css({'margin-left':'-100%','transition-duration':'500ms'});
-
-        window.setTimeout(function(){
-            $slide.removeAttr('style');
-            $slide.find('li:eq(0)').appendTo($slide);
-        },DURATION);
-    },INTERVAL);
 
 }); // .onready
