@@ -23,13 +23,31 @@ html, body {height: 100%;}
     height: 100%;
     position: relative;
 }
-
+.sr-only {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip:rect(0,0,0,0);
+    overflow: hidden;
+}
 /* 메뉴 토글 버튼 */
 .header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: black;
+    mix-blend-mode: difference;
     height: 140px;
 
     z-index: 100;
+}
+.header h1, 
+.header a, 
+.header .toggle {
+    filter: brightness(0) invert(1); /* 이미지가 검정색이라면 흰색으로 반전시키는 꿀팁 */
+    color: #ffffff; 
 }
 .header > h1 {
     position: absolute;
@@ -44,14 +62,14 @@ html, body {height: 100%;}
     background-repeat: no-repeat;
 }
 /* 웹 접근성 향상 <span> 요소 보이지 않도록 설정 */
-.header > h1 > a > span {
+/* .header > h1 > a > span {
     display: block;
     position: absolute;
     width: 1px;
     height: 1px;
     clip:rect(0,0,0,0);
     overflow: hidden;
-}
+} */
 .toggle {
     position: absolute;
     top: 50%;
@@ -69,14 +87,14 @@ html, body {height: 100%;}
     padding: 0;
     cursor: pointer;
 }
-.toggle > span {
+/* .toggle > span {
     position: absolute;
     display: block;
     width: 1px;
     height: 1px;
     clip:rect(0,0,0,0);
     overflow: hidden;
-}
+} */
 
 /* 메뉴 버튼 오버레이 */
 #overlay {
@@ -127,12 +145,12 @@ html, body {height: 100%;}
 }
 
 /* page 2 - full photo */
-#page2 > header > h1 {
+/* #page2 > header > h1 {
     background-image: url(../images/silica-gel-logo-main-grey.png);
 }
 #page2 > header > button.toggle {
     background-image: url(../images/menu_grey.png);
-}
+} */
 #page2 {
     overflow: hidden;
 }
@@ -148,12 +166,12 @@ html, body {height: 100%;}
     overflow: hidden;
     background-color: #000;
 }
-#page3 > header > h1 {
+/* #page3 > header > h1 {
     background-image: url(../images/silica-gel-logo-main-grey.png);
 }
 #page3 > header > button.toggle {
     background-image: url(../images/menu_grey.png);
-}
+} */
 .photodump {
     position: absolute;
     width: 90%;
@@ -221,9 +239,9 @@ html, body {height: 100%;}
 }
 
 /* page 4 - eyesmag 아이즈매거진 */
-#page4 > header > button.toggle {
+/* #page4 > header > button.toggle {
     background-image: url(../images/menu_grey.png);
-}
+} */
 #page4 > div {
     display: flex;
     position: absolute;
@@ -542,12 +560,12 @@ html, body {height: 100%;}
 #page7 {
     background: linear-gradient(180deg, rgba(51,51,51,1) 50%, rgba(34,34,34,1) 100%);
 }
-#page7 > header > h1 {
+/* #page7 > header > h1 {
     background-image: url(../images/silica-gel-logo-main-grey.png);
 }
 #page7 > header > button {
     background-image: url(../images/menu_grey.png);
-}
+} */
 #news {
     width: 70%;
     margin: 5% auto 0 auto;
@@ -614,12 +632,12 @@ html, body {height: 100%;}
 #page8 {
     background: linear-gradient(90deg, rgba(34,34,34,1) 50%, rgba(32,32,32,1) 100%);
 }
-#page8 > header > h1 {
+/* #page8 > header > h1 {
     background-image: url(../images/silica-gel-logo-main-grey.png);
 }
 #page8 > header > button {
     background-image: url(../images/menu_grey.png);
-}
+} */
 #page8 > div > aside > span {
     font-size: 120px;
 }
