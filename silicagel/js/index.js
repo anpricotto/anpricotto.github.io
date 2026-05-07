@@ -91,10 +91,13 @@ $(function(){
     var $fadeslide = $('.slide-fade');
 
     window.setInterval (function(){
-        $fadeslide.find('li:eq(2)').animate({'opacity':'0'},1500);
+        // 항상 마지막 요소를 찾아서 애니메이션 실행
+        var $lastItem = $fadeslide.find('li').last();
+
+        $lastItem.animate({'opacity':'0'},1500);
+
         window.setTimeout(function(){
-            $fadeslide.find('li:eq(2)').prependTo($fadeslide);
-            $fadeslide.find('li:eq(1)').css({'opacity':'1'});
+            $lastItem.prependTo($fadeslide).css({'opacity':'1'});
         },1500);
     },3000);
 
