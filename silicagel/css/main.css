@@ -1,36 +1,4 @@
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: #fff;
-    color: #202020;
-}
-
-/* 페이지 크기 */
-html, body {height: 100%;}
-
-#page {
-    height: 100%;
-}
-
-/* 공통 스타일 속성 */
-.page {
-    height: 100%;
-    position: relative;
-}
-.sr-only {
-    display: block;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    clip:rect(0,0,0,0);
-    overflow: hidden;
-}
 /* 메뉴 토글 버튼 */
 .header {
     position: fixed;
@@ -39,7 +7,7 @@ html, body {height: 100%;}
     right: 0;
     color: black;
     mix-blend-mode: difference;
-    height: 140px;
+    height: 14rem;
 
     z-index: 100;
 }
@@ -52,13 +20,13 @@ html, body {height: 100%;}
 .header > h1 {
     position: absolute;
     top: 50%;
-    left: 30px;
+    left: 3rem;
     transform: translateY(-50%);
-    width: 200px;
-    height: 50px;
+    width: 20rem;
+    height: 5rem;
 
     background-image: url(../images/silica-gel-logo-main.png);
-    background-size: 200px;
+    background-size: 20rem;
     background-repeat: no-repeat;
 }
 /* 웹 접근성 향상 <span> 요소 보이지 않도록 설정 */
@@ -73,10 +41,10 @@ html, body {height: 100%;}
 .toggle {
     position: absolute;
     top: 50%;
-    right: 30px;
+    right: 3rem;
     transform: translateY(-50%);
-    width: 100px;
-    height: 40px;
+    width: 10rem;
+    height: 4rem;
 
     background-image: url(../images/menu.png);
     background-repeat: no-repeat;
@@ -97,7 +65,7 @@ html, body {height: 100%;}
 } */
 
 /* 메뉴 버튼 오버레이 */
-#overlay {
+#aside-menu {
     position: fixed;
     top: 0;
     right: 0;
@@ -111,37 +79,38 @@ html, body {height: 100%;}
     display: none;
     cursor: pointer;
 }
-#overlay > nav > ul {
+#aside-menu > ul {
     position: absolute;
-    top: 50px;
-    right: 30px;
-    width: 100px;
+    top: 5rem;
+    right: 3rem;
+    width: 10rem;
 }
-#overlay > nav > ul > li:hover {
+#aside-menu > ul > li:hover {
     background-image: url(../images/silica-gel-small.png);
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 20px;
+    background-size: 2rem;
 }
 
-#overlay > nav > ul > li:not(:last-child) {
-    margin-bottom: 20px;
+#aside-menu > ul > li:not(:last-child) {
+    margin-bottom: 2rem;
 }
 
-#overlay > nav > ul > li > a {
+#aside-menu > ul > li > a {
     color: #202020;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 /* --------------------------------------------------------------------------- */
-/* page 1 */
-#page1 > img {
+
+.hero-image {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
     width: 50%;
+    height: auto;
 }
 
 /* page 2 - full photo */
@@ -151,18 +120,38 @@ html, body {height: 100%;}
 #page2 > header > button.toggle {
     background-image: url(../images/menu_grey.png);
 } */
-#page2 {
+.main {
+    position: relative;
     overflow: hidden;
 }
-#page2 > img {
-    width: 100%;
+.logo-white, .main-img {
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
+.main-img {
+    z-index: -1;
+    object-fit: cover;
+}
+.logo-white {
+    width: 20rem;
+    height: auto;
+    animation: rotate-infinite 4s linear infinite;
+}
+.logo-white:hover {
+    animation-play-state: paused;
+    mix-blend-mode: difference;
+}
+@keyframes rotate-infinite {
+    from {transform: translate(-50%, -50%) rotate(0deg) translateZ(0);}
+    to  {transform: translate(-50%, -50%) rotate(360deg) translateZ(0);}
+}
+
+
 /* page 3 - photodump */
-#page3 {
+.gallery {
     overflow: hidden;
     background-color: #000;
 }
@@ -198,51 +187,50 @@ html, body {height: 100%;}
 .photodump > img {
     position: absolute;
 }
-.photodump > img:nth-child(1) {width: 38%; top: 0; left: 0;}
-.photodump > img:nth-child(2) {width: 27%; top: 15%; left: 34%;}
-.photodump > img:nth-child(3) {width: 18%; top: 31%; right: 24%;}
-.photodump > img:nth-child(4) {width: 23%; top: 35%; right: 0;}
-.photodump > img:nth-child(5) {width: 37%; top: 43%; right: 31%;}
-.photodump > img:nth-child(6) {width: 29%; top: 54%; left: 0;}
-.photodump > img:nth-child(7) {width: 29%; top: 63%; right: 24%;}
-.photodump > img:nth-child(8) {width: 24%; top: 72%; left: 15%;}
-.photodump > img:nth-child(9) {width: 29%; bottom: 0; left: 0;}
+.photodump > img:nth-child(1) {width: 38%; height: auto; top: 0; left: 0;}
+.photodump > img:nth-child(2) {width: 27%; height: auto; top: 15%; left: 34%;}
+.photodump > img:nth-child(3) {width: 18%; height: auto; top: 31%; right: 24%;}
+.photodump > img:nth-child(4) {width: 23%; height: auto; top: 35%; right: 0;}
+.photodump > img:nth-child(5) {width: 37%; height: auto; top: 43%; right: 31%;}
+.photodump > img:nth-child(6) {width: 29%; height: auto; top: 54%; left: 0;}
+.photodump > img:nth-child(7) {width: 29%; height: auto; top: 63%; right: 24%;}
+.photodump > img:nth-child(8) {width: 24%; height: auto; top: 72%; left: 15%;}
+.photodump > img:nth-child(9) {width: 29%; height: auto; bottom: 0; left: 0;}
 
 #photolink {
     position: absolute;
     bottom: 0;
     right: 0;
-    margin: 0 5% 50px auto;
+    margin: 0 5% 5rem auto;
 }
 #photolink > p {
     font-family: "Orbitron", sans-serif;
-    font-size: 50px;
+    font-size: 5rem;
     line-height: 1.2;
     text-align: right;
     color: #fff;
 
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 #photolink > a {
     color: #000;
     background-color: #fff;
     text-decoration: none;
     font-family: 'GmarketSansMedium', cursive;
-    font-size: 25px;
+    font-size: 2.5rem;
 
     display: block;
     float: right;
-    width: 520px;
-    height: 2.5em;
-    line-height: 2.7;
+    padding: 2rem 5rem;
     text-align: center;
+    border-radius: 0.2rem;
 }
 
 /* page 4 - eyesmag 아이즈매거진 */
 /* #page4 > header > button.toggle {
     background-image: url(../images/menu_grey.png);
 } */
-#page4 > div {
+.interview-split-wrap {
     display: flex;
     position: absolute;
     top: 0;
@@ -250,71 +238,73 @@ html, body {height: 100%;}
     bottom: 0;
     left: 0;
 }
-#page4 > div > img {
-    display: block;
-    max-width: 960px;
+.interview-visual-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    overflow: hidden;
 }
-#eyesmag {
+.interview-visual-side, .interview-content-side {
+    flex: 1;
+}
+.eyesmag .interview-content-side {
     width: 100%;
     background-color: #000;
 }
-#eyesmag > div {
+.interview-content-side > div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    gap: 60px;
+    gap: 6rem;
 
-    padding: 100px 50px 50px 50px;
-    color: #fff;
+    padding: 10rem 5rem 5rem 5rem;
+    
     height: 50%;
     box-sizing: border-box;
 }
-#eyesmag > div > h2 {
+.interview-content-h2 {
     font-family: "Orbitron", sans-serif;
-    font-size: 50px;
+    font-size: 5rem;
+    color: #fff;
+    mix-blend-mode: difference;
 }
-#eyesmag > div > p {
+.interview-content-info {
     font-family: 'GmarketSansMedium', cursive;
-    font-size: 20px;
+    font-size: 2rem;
     text-align: center;
+    color: #fff;
+    mix-blend-mode: difference;
 }
-#eyesmag > div > div.flexbox {
+.button-flexbox {
     display: flex;
-    gap: 20px;
+    gap: 1.2rem;
 }
-#eyesmag > div > div.flexbox > a {
+.button-flexbox > a {
     background-color: #fff;
     color: #333;
     text-decoration: none;
     font-family: 'GmarketSansMedium', cursive;
-    font-size: 20px;
+    font-size: 2rem;
     text-align: center;
     box-sizing: border-box;
-    padding: 15px;
+    padding: 1.5rem;
 }
-#eyesmag > ul {
-    height: 50%;
-
-    /* li 요소들의 위치지정요소 */
+.slide-fade {
+    flex: 1;
     position: relative;
-    padding: 0 50px 50px 50px;
     box-sizing: border-box;
-
     overflow: hidden;
 }
-#eyesmag > ul > li {
+
+.slide-fade > li {
     position: absolute;
-    height: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-#eyesmag > ul > li > img {
+    width: 100%;
     height: 100%;
 }
 
 /* page 5 - 코스모폴리탄 */
-#page5 > div#imgwrap {
+.gallery-cosmopolitan {
     position: absolute;
     top: 0;
     left: 0;
@@ -325,96 +315,78 @@ html, body {height: 100%;}
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 10px;
+    gap: 1rem;
 }
-#imgwrap > img {
-    width: 100%;
-}
-#imgwrap > ul {
+.slide-carousel {
     width: 200%;
     display: flex;
-    gap: 10px;
+    gap: 1rem;
 }
-#imgwrap > ul > li {
+.slide-carousel > li {
     width: 20%;
 }
-#imgwrap > ul > li > img {
-    display: block;
-    width: 100%;
-}
-#cosmo {
-    width: 50%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    float: right;
-}
-#cosmo > h2 {
+/* .cosmopolitan .split-content-side > h2 {
     font-family: "Orbitron", sans-serif;
-    font-size: 50px;
+    font-size: 5rem;
     text-align: center;
     line-height: 1.3;
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
-#cosmo > p {
+.cosmopolitan .split-content-side > p {
     font-family: 'GmarketSansMedium', cursive;
-    font-size: 20px;
+    font-size: 2rem;
     text-align: center;
     line-height: 1.6;
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
-#cosmo > a {
+.cosmopolitan .split-content-side > a {
     color: #333;
     border: 1px solid #333;
     text-decoration: none;
     font-family: 'GmarketSansMedium', cursive;
-    font-size: 20px;
+    font-size: 2rem;
     text-align: center;
     box-sizing: border-box;
-    padding: 15px;
-    margin-bottom: 15px;
-}
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+} */
 
 
 /* page 6 - music*/
-#page6 {
+.music {
     background: linear-gradient(180deg, rgba(255,255,255,1) 10%, rgba(51,51,51,1) 100%);
 }
 .container {
+    height: 100%;
     display: flex;
-    width: 100%;
-    height: calc(100% - 140px);
-    position: relative;
 }
+.aside-title {
+    display: flex;
+    align-items: end;
+    padding-bottom: 2rem;
+    transform: translateX(-23rem);
+    transition-duration: 1000ms;
 
-.aside {
-    position: absolute;
-    left: -230px;
-    bottom:0;
-
-    width: 230px;
+    width: 23rem;
 }
-.aside > span {
+.page.is-active .aside-title {
+    transform: translateX(0);
+}
+.aside-title > span {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    font-size: 150px;
+    font-size: 15rem;
     font-weight: 900;
     color: #f0f0f0;
 }
 .container > article {
-    margin-left: 160px;
-    width: calc(100% - 230px);
+    /* margin-left: 16rem; */
+    width: 100%;
     height: 100%;
 }
 #albumWrap {
     width: 40%;
-    max-width: 500px;
+    max-width: 50rem;
     margin: 0 auto;
 
     position: relative;
@@ -423,7 +395,7 @@ html, body {height: 100%;}
 }
 #albumList {
     width: 100%;
-    max-width: 500px;
+    max-width: 50rem;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -460,16 +432,16 @@ html, body {height: 100%;}
     opacity: 1;
 }
 #albumList > ul > li > div.back > h3 {
-    margin: 40% auto 40px auto;
-    font-size: 20px;
+    margin: 40% auto 4rem auto;
+    font-size: 2rem;
 }
 #prev, #next {
     background-color: transparent;
     border: none;
     padding: 0;
 
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
 
     position: absolute;
     top: 50%;
@@ -482,11 +454,11 @@ html, body {height: 100%;}
     background-image: url(../images/prev_grey.png);
     background-repeat: no-repeat;
     background-size: cover;
-    left: calc(-50px - 10%);
+    left: calc(-5rem - 10%);
 }
 #next {
     background-image: url(../images/next_grey.png);
-    right: calc(-50px - 10%);
+    right: calc(-5rem - 10%);
 }
 /* 웹 접근성 향상 <span> 요소 보이지 않도록 설정 */
 #prev > span, #next > span {
@@ -503,21 +475,21 @@ html, body {height: 100%;}
     /* indicator 요소의 위치지정요소는 #albumwrap(relative)*/
     position: absolute;
     width: 100%;
-    bottom: -30px;
+    bottom: -3rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 /* indicator 요소의 동그라미 스타일 속성 */
 #indicator > li {
-    width: 15px;
-    height: 15px;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     border: 2px solid #d0d0d0;
     cursor: pointer;
 }
 #indicator > li:not(:last-child) {
-    margin-right: 5px;
+    margin-right: 0.5rem;
 }
 #indicator > li.on {
     background-color: #d0d0d0;
@@ -534,7 +506,7 @@ html, body {height: 100%;}
 }
 
 /* more info 버튼 */
-.moreinfo {
+.more-info {
     /* a 요소 기본 스타일 속성 제거 */
     color: #d0d0d0;
     text-decoration: none;
@@ -543,21 +515,24 @@ html, body {height: 100%;}
     position: absolute;
     right: 5%;
     bottom: 10%;
+
+    padding: 0 0.4rem 0.4rem 0;
+
     /* 배경 이미지 */
     background-image: url(../images/more_info_grey.png);
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: left bottom;
 
     /* 크기 설정 */
     display: block;
-    width: 100px;
-    height: 1.6em;
+    width: 10rem;
+    height: 1.6rem;
 }
 
 
 
 /* page 7 - news */
-#page7 {
+.news {
     background: linear-gradient(180deg, rgba(51,51,51,1) 50%, rgba(34,34,34,1) 100%);
 }
 /* #page7 > header > h1 {
@@ -568,24 +543,24 @@ html, body {height: 100%;}
 } */
 #news {
     width: 70%;
-    margin: 5% auto 0 auto;
+    /* margin: 5% auto 0 auto; */
 }
 #news > li {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 #news > li:last-child {margin-bottom: none;}
 
 #news > li > p.date {
-    width: 120px;
+    width: 12rem;
     color: #d0d0d0;
-    margin-right: 20px;
+    margin-right: 2rem;
     line-height: 1.6;
 }
 #news > li > p.title {
     color: #d0d0d0;
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 2rem;
+    margin-top: 1rem;
     width: 100%;
     height: 100px;
 
@@ -597,10 +572,10 @@ html, body {height: 100%;}
 
     /* p.date 요소를 기준으로 배치 */
     position: absolute;
-    top: -10px;
-    left: -10px;
-    bottom: 10px;
-    width: 1px;
+    top: -1rem;
+    left: -1rem;
+    bottom: 1rem;
+    width: 0.1rem;
     border-right: 1px solid #d0d0d0;
 }
 
@@ -609,9 +584,9 @@ html, body {height: 100%;}
     /* button 요소 기본 스타일 속성 제거 */
     background-color: transparent;
     border: none;
-    padding: 0px;
+    padding: 0;
 
-    width: 30px;
+    width: 3rem;
     background-image: url(../images/next_grey.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -629,7 +604,7 @@ html, body {height: 100%;}
 }
 
 /* page 8 - newsletter */
-#page8 {
+.newsletter {
     background: linear-gradient(90deg, rgba(34,34,34,1) 50%, rgba(32,32,32,1) 100%);
 }
 /* #page8 > header > h1 {
@@ -638,17 +613,16 @@ html, body {height: 100%;}
 #page8 > header > button {
     background-image: url(../images/menu_grey.png);
 } */
-#page8 > div > aside > span {
-    font-size: 120px;
+.newsletter .aside-title {
+    position: relative;
 }
-#page8 > div > aside > span:first-child {
+.newsletter .aside-title > span {
+    font-size: 12rem;
+}
+.newsletter .aside-title > span:first-child {
     position: absolute;
-    top: -92px;
-    left: 105px;
-}
-
-#page8 > .container > article {
-    margin-left: 230px;
+    bottom: 20rem;
+    left: 12rem;
 }
 #box {
     position: relative;
@@ -657,30 +631,27 @@ html, body {height: 100%;}
     margin: 0 auto;
 }
 
-.asideMove {
-    transform: translateX(230px);
-    transition-duration: 1000ms;
-}
+
 
 
 /* 실리카겔 image */
 #box > img:first-child {
     position: absolute;
     width: 40%;
-    max-width: 600px;
+    max-width: 60rem;
     left: 0;
     bottom: 10%;
 }
 #box > img:nth-child(2) {
     width: 25%;
-    max-width: 600px;
+    max-width: 60rem;
     position: absolute;
     top: 0;
     right: 10%;
 }
 #box > img:nth-child(3) {
     width: 40%;
-    max-width: 600px;
+    max-width: 60rem;
     position: absolute;
     top: 5%;
     left: 10%;
@@ -695,36 +666,36 @@ html, body {height: 100%;}
     padding: 10% 15%;
 
     position: absolute;
-    bottom: 30px;
+    bottom: 3rem;
     right: 0;
 }
 
 #newsletter > span {
-    font-size: 20px;
+    font-size: 2rem;
 }
 #email {
     width: 100%;
-    margin: 10px 0 20px 0;
+    margin: 1rem 0 2rem 0;
 }
 /* checkbox */
 #check-container {
     display: flex;
     flex-wrap: wrap;
 
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 .checkbox {
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
 }
 
 #submit {
-    margin-top: 20px;
+    margin-top: 2rem;
     background-color: #fff;
     border: 1px solid #202020;
-    width: 100px;
-    height: 30px;
-    font-size: 15px;
+    width: 10rem;
+    height: 3rem;
+    font-size: 1.5rem;
 
     position: absolute;
     right: 15%;
@@ -732,16 +703,16 @@ html, body {height: 100%;}
 }
 
 .alert {
-    width: 400px;
+    width: 40rem;
     line-height: 8;
     background-color: #ffffff;
     background-image: url(../images/close.png);
     background-repeat: no-repeat;
-    background-position: 385px 5px;
-    background-size: 10px;
+    background-position: 38.5rem 0.5rem;
+    background-size: 1rem;
     text-align: center;
     border: 2px solid #202020;
-    margin: 30px auto;
+    margin: 3rem auto;
 
     position: absolute;
     bottom: 0;
@@ -759,10 +730,10 @@ html, body {height: 100%;}
 
 /* footer */
 #footer {
-    height: 50px;
+    height: 5rem;
     background-color: #202020;
     color: #fff;
     text-align: right;
-    line-height: 3em;
-    padding-right: 20px;
+    line-height: 3;
+    padding-right: 2rem;
 }

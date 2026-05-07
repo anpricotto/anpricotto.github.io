@@ -2,10 +2,8 @@ $(function(){
 
     var $html = $('html');
     var $window = $(window);
-    //section별 aside 요소
-    var $aside = $('.aside');
     var $toggle = $('.toggle');
-    var $overlay = $('#overlay');
+    var $asideMenu = $('#aside-menu');
     var $image = $('#box > img');
     var $email = $('#email');
 
@@ -28,64 +26,46 @@ $(function(){
         // 기본 이벤트 제거
         event.preventDefault();
 
+        //스크롤이 진행되는 도중 발생한 wheel 이벤트는 무시
+        if ($html.is(':animated')) return;
+
+        //1. 인덱스 계산
+        if (event.deltaY > 0) {
+            if (pageIndex >= lastPageIndex) return;
+            pageIndex++;
+        } else {
+            if (pageIndex <= 0) return;
+            pageIndex--;
+        }
+
+        //2. 계산된 인덱스로 모든 상태 업데이트
+        updatePageStatus();
+
         // 마우스 휠이 굴러갈 땐 오버레이 이미지를 안 보이게 설정
         if ($overlay.is(':visible')){
             $overlay.hide();
         };
-
-        // 스크롤이 진행되는 도중에 발생한 wheel 이벤트는 무시
-        if ($html.is(':animated')) return;
-
-        // 이동할 페이지의 인덱스를 계산
-        // 1.1. 마우스 휠 버튼을 아래쪽으로 굴릴 경우
-        if(event.deltaY > 0) {
-            // 마지막 페이지일 경우 이벤트 종료
-            if (pageIndex >= lastPageIndex) return;
-            console.log ('pageIndex =' + pageIndex);
-            console.log('lastPageIndex = ' + lastPageIndex);
-        // 1.2. 다음 페이지로 스크롤 한다.
-            pageIndex++;
-
-            // 첫 페이지를 제외하고 (-5), 각 페이지의 aside 요소를 오른쪽에서 왼쪽으로 보이도록 슬라이드
-            $aside.eq(pageIndex - 5).not('.asideMove').addClass('asideMove');
-            // 지나간 페이지의 aside 요소는 다시 숨김
-            $aside.eq(pageIndex - 6).removeClass('asideMove').css('transition','transform 1000ms');
-
-            // 만약 마지막 페이지라면(푸터가 보일 때), 마지막에서 2번째 페이지의 aside는 사라지지 않게 한다.
-            if (pageIndex == lastPageIndex)
-                $aside.eq(pageIndex - 9).addClass('asideMove');
-
-        }
-
-        // 1.3. 마우스 휠 버튼을 위쪽으로 굴릴 경우
-        else if (event.deltaY <= 0) {
-            // 첫 페이지일 경우 이벤트 종료
-            if (pageIndex <= 0) return;
-            console.log ('pageIndex =' + pageIndex);
-            console.log('lastPageIndex = ' + lastPageIndex);
-        // 1.4. 이전 페이지로 스크롤 한다.
-            pageIndex--;
-
-            // 첫 페이지를 제외하고 (-5), 각 페이지의 aside 요소를 오른쪽에서 왼쪽으로 보이도록 슬라이드
-            $aside.eq(pageIndex - 5).not('.asideMove').addClass('asideMove');
-            $aside.eq(pageIndex).removeClass('asideMove');
-        };
-
-        // 스크롤 할 위치를 계산
-        //  뷰포트의 높이 * 이동할 페이지의 인덱스
-        var posTop = windowHeight * pageIndex;
-
-        // 계산한 위치로 스크롤
-        $html.animate ({scrollTop: posTop});
-
-        // newsletter 페이지가 뜬 경우, img들이 서서히 나타나도록 한다.(스크롤을 내렸을 때만)
-        if (posTop == windowHeight * (lastPageIndex - 1))
-            {if (event.deltaY <= 0) return;
-            $image.addClass('fadeIn');
-        } else {
-            $image.removeClass('fadeIn');
-        };
     },{passive: false});
+
+    // 상태 업데이트 함수
+    function updatePageStatus() {
+        //A. 스크롤 할 위치를 계산
+        // 뷰포트의 높이 * 이동할 페이지의 인덱스
+        var posTop = windowHeight * pageIndex;
+        $html.stop().animate({scrollTop: posTop}, 800);
+
+        //B. 섹션 활성화 클래스
+        $('.page').removeClass('is-active').eq(pageIndex).addClass('is-active');
+
+        //C. newsletter 페이지가 뜬 경우, img 페이드인
+        const isNewsletterPage = (pageIndex === lastPageIndex - 1);
+        $image.toggleClass('fadeIn', isNewsletterPage);
+
+        //D. asideMenu 끄기
+        if ($asideMenu.is(':visible'))
+            $asideMenu.hide();
+    }
+
 
     // 뷰포트의 크기가 바뀌면 windowHeight를 재설정
     window.addEventListener('resize',function(){
@@ -94,7 +74,7 @@ $(function(){
     //------------------------------페이지 하나씩 넘어가는 효과------------------------------
 
 
-    // page 3 - photodump 끊임없이 올라가는 효과
+    // gallery - photodump
     var $photodump = $('.photodump');
 
     $photodump.clone().addClass('dump2').insertAfter($photodump);
@@ -107,19 +87,19 @@ $(function(){
         $firstDump.removeClass('dump1').addClass('dump2').insertAfter($secondDump);
     },10000);
 
-    // page 4 - 아이즈매거진 서브이미지 변경 효과
-    var $magslide = $('#eyesmag > ul');
+    // eyesmag - 아이즈매거진 서브이미지 변경 효과
+    var $fadeslide = $('.slide-fade');
 
     window.setInterval (function(){
-        $magslide.find('li:eq(2)').animate({'opacity':'0'},1500);
+        $fadeslide.find('li:eq(2)').animate({'opacity':'0'},1500);
         window.setTimeout(function(){
-            $magslide.find('li:eq(2)').prependTo($magslide);
-            $magslide.find('li:eq(1)').css({'opacity':'1'});
+            $fadeslide.find('li:eq(2)').prependTo($fadeslide);
+            $fadeslide.find('li:eq(1)').css({'opacity':'1'});
         },1500);
     },3000);
 
     // page 5 - 코스모폴리탄 이미지 슬라이드 효과
-    var $cosmoslide = $('#imgwrap > ul');
+    var $cosmoslide = $('.slide-carousel');
 
 
     window.setInterval (function(){

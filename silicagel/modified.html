@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Silica Gel</title>
         <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/common.css">
         <link rel="stylesheet" href="./css/main.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,20 +17,20 @@
         <script src="./js/index.js"></script>
     </head>
     <body>
-        <div id="page">
+        <section class="frame">
             <header class="header">
                 <h1><a href="./index.html"><span class="sr-only">Home</span></a></h1>
                 <button class="toggle"><span class="sr-only">toggle menu</span></button>
             </header>
-            <div id="page1" class="page hero">
-                <img src="./images/silica-gel-logo-main.png" alt="silicagel">
+            <section class="page hero">
+                <img class="hero-image" src="./images/silica-gel-logo-main.png" alt="silicagel">
 
-            </div> <!--/#page1-->
-            <div id="page2" class="page">
-                
-                <img src="./images/photo_silica_gel.jpg" alt="실리카겔 메인 사진">
-            </div> <!--/#page2-->
-            <div id="page3" class="page gallery">
+            </section>
+            <section class="page main">
+                <img class="logo-white" class="loadOff" src="./images/load_silicagel_img_white.png" alt="silica-gel-logo-white">
+                <img class="main-img" src="./images/photo_silica_gel.jpg" alt="실리카겔 메인 사진">
+            </section>
+            <section class="page gallery">
                
                 <div class="photodump">
                     <img src="./images/photo_concert_1.jpg" alt="실리카겔 콘서트 비하인드 1">
@@ -47,80 +48,78 @@
                         : POWER ANDRE 99</p>
                     <a target="_blank" href="https://drive.google.com/drive/folders/1_fzv__ySOu9FthRNQdCuFBrdgqug-LSh">WALLPAPER DOWNLOAD</a>
                 </div>
-            </div> <!--/#page3-->
-
-            <!-- 아이즈매거진 -->
-            <div id="page4" class="page">
-                
-                <div>
-                    <img src="./images/eyesmag_main.jpg" alt="실리카겔 아이즈매거진 메인 사진">
-                    <div id="eyesmag">
-                        <div> <!--textwrap-->
-                            <h2>
-                                SILICA GEL X eyesmag
-                            </h2>
-                            <p>
-                                "감각을 음악으로 덮어버리는 그 느낌"
-                            </p>
-                            <div class="flexbox">
-                                <a target="_blank" href="https://www.eyesmag.com/posts/155395/silicagel-interview">실리카겔 아이즈매거진 인터뷰</a>
-                                <a target="_blank" href="https://www.youtube.com/watch?v=GMSlCC4VC6A&t=1s">실리카겔 추천 플레이리스트</a>
-                            </div>
-                        </div> <!--textwrap-->
-                        <ul>
+            </section>
+            <section class="page eyesmag">
+                <div class="interview-split-wrap">
+                    <div class="interview-visual-side">
+                        <ul class="slide-fade">
                             <li><img src="./images/eyesmag_sub_3.jpg" alt="실리카겔 아이즈매거진 화보 2명씩"></li>
                             <li><img src="./images/eyesmag_sub_2.jpg" alt="실리카겔 아이즈매거진 화보 김한주"></li>
                             <li><img src="./images/eyesmag_sub_1.jpg" alt="실리카겔 아이즈매거진 화보 단체"></li>
+                            <li><img src="./images/eyesmag_main.jpg" alt="실리카겔 아이즈매거진 메인 사진"></li>
                         </ul>
-                    </div> <!--/#cosmo-->
+                    </div>
+                    <div class="interview-content-side">
+                        <div>
+                            <h2 class="interview-content-h2">
+                                SILICA GEL X eyesmag
+                            </h2>
+                            <p class="interview-content-info">
+                                "감각을 음악으로 덮어버리는 그 느낌"
+                            </p>
+                            <div class="button-flexbox">
+                                <a target="_blank" href="https://www.eyesmag.com/posts/155395/silicagel-interview">실리카겔 아이즈매거진 인터뷰</a>
+                                <a target="_blank" href="https://www.youtube.com/watch?v=GMSlCC4VC6A&t=1s">실리카겔 추천 플레이리스트</a>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
-            </div> <!--/#page4-->
-
-
-
-            <!-- 코스모폴리탄 -->
-            <div id="page5" class="page">
-                
-                <div id="imgwrap">
-                    <img src="./images/cosmo_photo_1.jpg" alt="실리카겔 코스모폴리탄 화보 단체">
-                    <ul>
-                        <li>
-                            <img src="./images/cosmo_photo_2.jpg" alt="실리카겔 코스모폴리탄 화보 김한주 계단">
-                        </li>
-                        <li>
-                            <img src="./images/cosmo_photo_3.jpg" alt="실리카겔 코스모폴리탄 화보 김춘추">
-                        </li>
-                        <li>
-                            <img src="./images/cosmo_photo_6.jpg" alt="실리카겔 코스모폴리탄 화보 최웅희">
-                        </li>
-                        <li>
-                            <img src="./images/cosmo_photo_5.jpg" alt="실리카겔 코스모폴리탄 화보 김건재">
-                        </li>
-                        <li>
-                            <img src="./images/cosmo_photo_4.jpg" alt="실리카겔 코스모폴리탄 화보 김춘추 전화">
-                        </li>
-                    </ul>
+            </section>
+        
+            <section class="page cosmopolitan">
+                <div class="interview-split-wrap">
+                    <div class="interview-visual-side">
+                            <img src="./images/cosmo_photo_1.jpg" alt="실리카겔 코스모폴리탄 화보 단체">
+                            <ul class="slide-carousel">
+                                <li>
+                                    <img src="./images/cosmo_photo_2.jpg" alt="실리카겔 코스모폴리탄 화보 김한주 계단">
+                                </li>
+                                <li>
+                                    <img src="./images/cosmo_photo_3.jpg" alt="실리카겔 코스모폴리탄 화보 김춘추">
+                                </li>
+                                <li>
+                                    <img src="./images/cosmo_photo_6.jpg" alt="실리카겔 코스모폴리탄 화보 최웅희">
+                                </li>
+                                <li>
+                                    <img src="./images/cosmo_photo_5.jpg" alt="실리카겔 코스모폴리탄 화보 김건재">
+                                </li>
+                                <li>
+                                    <img src="./images/cosmo_photo_4.jpg" alt="실리카겔 코스모폴리탄 화보 김춘추 전화">
+                                </li>
+                            </ul>
+                    </div>
+                    <div class="interview-content-side">
+                        <div>
+                            <h2 class="interview-content-h2">
+                                SILICA GEL X <br>
+                                COSMOPOLITAN
+                            </h2>
+                            <p class="interview-content-info">
+                                실리카겔의 음, 실리카겔의 언어<br>
+                                그 모든 건 실리카겔이 되어.
+                            </p>
+                            <div class="button-flexbox">
+                                <a target="_blank" href="https://www.cosmopolitan.co.kr/article/83127">실리카겔 코스모폴리탄 인터뷰</a>
+                                <a target="_blank" href="https://www.youtube.com/watch?v=DN_QXW-kApc">실리카겔 코스모폴리탄 유튜브</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!--/#imgwrap-->
-                <div id="cosmo">
-                    <h2>
-                        SILICA GEL X <br>
-                        COSMOPOLITAN
-                    </h2>
-                    <p>
-                        실리카겔의 음, 실리카겔의 언어<br>
-                        그 모든 건 실리카겔이 되어.
-                    </p>
-                    <a target="_blank" href="https://www.cosmopolitan.co.kr/article/83127">실리카겔 코스모폴리탄 인터뷰</a>
-                    <a target="_blank" href="https://www.youtube.com/watch?v=DN_QXW-kApc">실리카겔 코스모폴리탄 유튜브</a>
-                </div> <!--/#cosmo-->
-            </div> <!--/#page5 -->
-
-            <!-- page 6  -->
-            <div id="page6" class="page">
-                
+            </section>
+            <section class="page music">
                 <div class="container">
-                    <aside class="aside">
+                    <aside class="aside-title">
                         <span>MUSIC</span>
                     </aside>
                     <article>
@@ -167,15 +166,14 @@
                             <button id="prev"><span>prev</span></button>
                             <button id="next"><span>next</span></button>
                         </div> <!--/#wrap-->
-                        <a href="./music.html" class="moreinfo">more info</a>
+                        <a href="./music.html" class="more-info">more info</a>
                     </article>
                 </div> <!--/.container-->
-            </div> <!--/#page6-->
+            </section>
 
-            <div id="page7" class="page">
-               
+            <section class="page news">
                 <div class="container">
-                    <aside class="aside">
+                    <aside class="aside-title">
                         <span>NEWS</span>
                     </aside>
                     <article>
@@ -209,14 +207,13 @@
                                 <button class="more"><span>more</span></button>
                             </li>
                         </ul>
-                        <a href="./news.html" class="moreinfo">more info</a>
+                        <a href="./news.html" class="more-info">more info</a>
                     </article>
                 </div> <!--/.container-->
-            </div> <!--/#page7-->
-            <div id="page8" class="page">
-                
+            </section>
+            <section class="page newsletter">
                 <div class="container">
-                    <aside class="aside">
+                    <aside class="aside-title">
                         <span>NEWS</span>
                         <span>LETTER</span>
                     </aside>
@@ -258,21 +255,19 @@
                         </div> <!--/#box-->
                     </article>
                 </div> <!--/.container-->
-            </div> <!--/#page8-->
+            </section>
             <footer id="footer" class="page">
                 &copy; MAGIC STRAWBERRY SOUND
             </footer>
-            <div id="overlay">
-                <nav>
-                    <ul>
-                        <li><a href="./index.html">HOME</a></li>
-                        <li><a href="./about.html">ABOUT</a></li>
-                        <li><a href="./news.html">NEWS</a></li>
-                        <li><a href="./music.html">MUSIC</a></li>
-                        <li><a href="./video.html">VIDEO</a></li>
-                    </ul>
-                </nav>
-            </div> <!--/#overlay-->
+            <nav id="aside-menu">
+                <ul>
+                    <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./about.html">ABOUT</a></li>
+                    <li><a href="./news.html">NEWS</a></li>
+                    <li><a href="./music.html">MUSIC</a></li>
+                    <li><a href="./video.html">VIDEO</a></li>
+                </ul>
+            </nav>
         </div> <!--/#page-->
     </body>
 </html>
