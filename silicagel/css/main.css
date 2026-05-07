@@ -251,7 +251,7 @@
     width: 100%;
     background-color: #000;
 }
-.interview-content-side > div {
+.interview-content-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -270,6 +270,10 @@
     mix-blend-mode: difference;
 }
 .interview-content-info {
+    display: flex;
+    flex-direction: column;
+}
+.interview-content-p {
     font-family: 'GmarketSansMedium', cursive;
     font-size: 2rem;
     text-align: center;
