@@ -11,6 +11,9 @@ $(function(){
     // 페이지의 인덱스
     var pageIndex = 0;
 
+    // 스크롤 중인지 체크
+    var isScrolling = false;
+
     // 마지막 페이지 인덱스
     var lastPageIndex = $('.page').length - 1;
 
@@ -19,15 +22,16 @@ $(function(){
 
     // 새로고침을 하면 첫 페이지로 이동
     $html.animate({scrollTop: 0},10);
-
+    
     // 페이지 하나씩 넘어가는 효과
     // 1. 마우스 휠 버튼을 굴리면
     window.addEventListener('wheel', function(event){
         // 기본 이벤트 제거
         event.preventDefault();
 
-        //스크롤이 진행되는 도중 발생한 wheel 이벤트는 무시
-        if ($html.is(':animated')) return;
+        //스크롤이 진행되는 중, deltaY 값이 너무 작은 경우 무시
+        if (isScrolling || Math.abs(event.deltaY) < 50) return;
+
 
         //1. 인덱스 계산
         if (event.deltaY > 0) {
@@ -39,7 +43,13 @@ $(function(){
         }
 
         //2. 계산된 인덱스로 모든 상태 업데이트
+        isScrolling = true; // 플래스 제어
         updatePageStatus();
+
+        // 애니메이션 끝날 때 쯤 플래그 해제
+        this.setTimeout(function() {
+            isScrolling = false;
+        }, 1000) 
 
         // 마우스 휠이 굴러갈 땐 오버레이 이미지를 안 보이게 설정
         if ($overlay.is(':visible')){
@@ -52,7 +62,10 @@ $(function(){
         //A. 스크롤 할 위치를 계산
         // 뷰포트의 높이 * 이동할 페이지의 인덱스
         var posTop = windowHeight * pageIndex;
-        $html.stop().animate({scrollTop: posTop}, 800);
+        $html.stop(true, true).animate({scrollTop: posTop}, 800);
+
+        // A-1. 첫번째 페이지에서 h1 숨기기
+        $('h1').toggleClass('hidden', pageIndex == 0);
 
         //B. 섹션 활성화 클래스
         $('.page').removeClass('is-active').eq(pageIndex).addClass('is-active');
@@ -114,12 +127,14 @@ $(function(){
     },2500);
 
     // page 6 - 이미지 슬라이드 with indicator
-    var $albumList = $('#albumList > ul');
+    var $albumList = $('.album_slide_list');
     var $albumLength = $albumList.children().length;
     var albumIndex = 0;
-    var $prev = $('#prev');
-    var $next = $('#next');
+    var $prev = $('.slide_prev_btn');
+    var $next = $('.slide_next_btn');
 
+    $albumList.css('width', ($albumLength * 100) + '%');
+    
     // 이미지 슬라이드
     var INTERVAL = 2000;
 
@@ -204,11 +219,11 @@ $(function(){
     // 메뉴 오버레이 창 나타나는 효과
     // class가 toggle인 요소를 클릭하면
     $toggle.on('click',function(){
-        // id가 overlay인 요소가 서서히 나타난다.
-        $overlay.fadeIn('100ms','linear');
+        // asideMenu가 서서히 나타난다.
+        $asideMenu.fadeIn('100ms','linear');
 
-        $overlay.on('click',function(){
-            $overlay.fadeOut();
+        $asideMenu.on('click',function(){
+            $asideMenu.fadeOut();
         });
     }); // toggle.onclick 이벤트
 
@@ -263,8 +278,8 @@ $(function(){
 
         printClass();
 
-        $albumList.animate({marginLeft: '-100%'},function(){
-            $albumList.removeAttr('style').children(':first').appendTo(this)
+        $albumList.stop().animate({ marginLeft: '-100%' }, 500, function() {
+            $(this).append($(this).children(':first')).css('margin-left', 0);
         });
     }
 

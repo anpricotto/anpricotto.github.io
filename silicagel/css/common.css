@@ -48,6 +48,15 @@ img {
     height: 100%;
     position: relative;
 }
+/* footer */
+.footer {
+    height: 5rem;
+    background-color: #202020;
+    color: #fff;
+    text-align: right;
+    line-height: 3;
+    padding-right: 2rem;
+}
 .sr-only {
     display: block;
     position: absolute;
@@ -55,4 +64,98 @@ img {
     height: 1px;
     clip:rect(0,0,0,0);
     overflow: hidden;
+}
+
+/* 메뉴 토글 버튼 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: black;
+    mix-blend-mode: difference;
+    height: 14rem;
+
+    z-index: 100;
+}
+.header h1, 
+.header a, 
+.header .toggle {
+    filter: brightness(0) invert(1); /* 이미지가 검정색이라면 흰색으로 반전시키는 꿀팁 */
+    color: #ffffff; 
+}
+.header > h1 {
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translateY(-50%);
+    width: 20rem;
+    height: 5rem;
+
+    background-image: url(../images/silica-gel-logo-main.png);
+    background-size: 20rem;
+    background-repeat: no-repeat;
+
+    transition: opacity 0.8s, visibility 0.8s;
+    opacity: 1;
+    visibility: visible;
+}
+.header > h1.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.toggle {
+    position: absolute;
+    top: 50%;
+    right: 3rem;
+    transform: translateY(-50%);
+    width: 10rem;
+    height: 4rem;
+
+    background-image: url(../images/menu.png);
+    background-repeat: no-repeat;
+
+    /* <button> 요소 기본 스타일 속성 제거 */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* 메뉴 버튼 오버레이 */
+#aside-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+
+    background-color: rgba(255, 255, 255, 0.8);
+
+    /* 처음에는 보이지 않도록 설정 */
+    display: none;
+    cursor: pointer;
+}
+#aside-menu > ul {
+    position: absolute;
+    top: 5rem;
+    right: 3rem;
+    width: 10rem;
+}
+#aside-menu > ul > li:hover {
+    background-image: url(../images/silica-gel-small.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 2rem;
+}
+
+#aside-menu > ul > li:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+#aside-menu > ul > li > a {
+    color: #202020;
+    text-decoration: none;
+    font-size: 1.8rem;
 }

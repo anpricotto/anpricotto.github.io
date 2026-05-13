@@ -1,106 +1,4 @@
 
-/* 메뉴 토글 버튼 */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    color: black;
-    mix-blend-mode: difference;
-    height: 14rem;
-
-    z-index: 100;
-}
-.header h1, 
-.header a, 
-.header .toggle {
-    filter: brightness(0) invert(1); /* 이미지가 검정색이라면 흰색으로 반전시키는 꿀팁 */
-    color: #ffffff; 
-}
-.header > h1 {
-    position: absolute;
-    top: 50%;
-    left: 3rem;
-    transform: translateY(-50%);
-    width: 20rem;
-    height: 5rem;
-
-    background-image: url(../images/silica-gel-logo-main.png);
-    background-size: 20rem;
-    background-repeat: no-repeat;
-}
-/* 웹 접근성 향상 <span> 요소 보이지 않도록 설정 */
-/* .header > h1 > a > span {
-    display: block;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    clip:rect(0,0,0,0);
-    overflow: hidden;
-} */
-.toggle {
-    position: absolute;
-    top: 50%;
-    right: 3rem;
-    transform: translateY(-50%);
-    width: 10rem;
-    height: 4rem;
-
-    background-image: url(../images/menu.png);
-    background-repeat: no-repeat;
-
-    /* <button> 요소 기본 스타일 속성 제거 */
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-/* .toggle > span {
-    position: absolute;
-    display: block;
-    width: 1px;
-    height: 1px;
-    clip:rect(0,0,0,0);
-    overflow: hidden;
-} */
-
-/* 메뉴 버튼 오버레이 */
-#aside-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-
-    background-color: rgba(255, 255, 255, 0.8);
-
-    /* 처음에는 보이지 않도록 설정 */
-    display: none;
-    cursor: pointer;
-}
-#aside-menu > ul {
-    position: absolute;
-    top: 5rem;
-    right: 3rem;
-    width: 10rem;
-}
-#aside-menu > ul > li:hover {
-    background-image: url(../images/silica-gel-small.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 2rem;
-}
-
-#aside-menu > ul > li:not(:last-child) {
-    margin-bottom: 2rem;
-}
-
-#aside-menu > ul > li > a {
-    color: #202020;
-    text-decoration: none;
-    font-size: 1.8rem;
-}
 /* --------------------------------------------------------------------------- */
 
 .hero-image {
@@ -186,24 +84,25 @@
 }
 .photodump > img {
     position: absolute;
+    height: auto;
 }
-.photodump > img:nth-child(1) {width: 38%; height: auto; top: 0; left: 0;}
-.photodump > img:nth-child(2) {width: 27%; height: auto; top: 15%; left: 34%;}
-.photodump > img:nth-child(3) {width: 18%; height: auto; top: 31%; right: 24%;}
-.photodump > img:nth-child(4) {width: 23%; height: auto; top: 35%; right: 0;}
-.photodump > img:nth-child(5) {width: 37%; height: auto; top: 43%; right: 31%;}
-.photodump > img:nth-child(6) {width: 29%; height: auto; top: 54%; left: 0;}
-.photodump > img:nth-child(7) {width: 29%; height: auto; top: 63%; right: 24%;}
-.photodump > img:nth-child(8) {width: 24%; height: auto; top: 72%; left: 15%;}
-.photodump > img:nth-child(9) {width: 29%; height: auto; bottom: 0; left: 0;}
+.photodump > img:nth-child(1) {width: 38%; top: 0; left: 0;}
+.photodump > img:nth-child(2) {width: 27%; top: 15%; left: 34%;}
+.photodump > img:nth-child(3) {width: 18%; top: 31%; right: 24%;}
+.photodump > img:nth-child(4) {width: 23%; top: 35%; right: 0;}
+.photodump > img:nth-child(5) {width: 37%; top: 43%; right: 31%;}
+.photodump > img:nth-child(6) {width: 29%; top: 54%; left: 0;}
+.photodump > img:nth-child(7) {width: 29%; top: 63%; right: 24%;}
+.photodump > img:nth-child(8) {width: 24%; top: 72%; left: 15%;}
+.photodump > img:nth-child(9) {width: 29%; bottom: 0; left: 0;}
 
-#photolink {
+.gallery_content {
     position: absolute;
     bottom: 0;
     right: 0;
     margin: 0 5% 5rem auto;
 }
-#photolink > p {
+.gallery_content > p {
     font-family: "Orbitron", sans-serif;
     font-size: 5rem;
     line-height: 1.2;
@@ -212,7 +111,7 @@
 
     margin-bottom: 2rem;
 }
-#photolink > a {
+.btn_photolink {
     color: #000;
     background-color: #fff;
     text-decoration: none;
@@ -297,6 +196,8 @@
     text-align: center;
     box-sizing: border-box;
     padding: 1.5rem;
+    border: 1px solid #333;
+    border-radius: 0.2rem;
 }
 .slide-fade {
     flex: 1;
@@ -368,6 +269,13 @@
     height: 100%;
     display: flex;
 }
+.article {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .aside-title {
     display: flex;
     align-items: end;
@@ -387,44 +295,31 @@
     font-weight: 900;
     color: #f0f0f0;
 }
-.container > article {
-    /* margin-left: 16rem; */
-    width: 100%;
-    height: 100%;
-}
-#albumWrap {
-    width: 40%;
+.album_slide_container {
     max-width: 50rem;
     margin: 0 auto;
 
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
-#albumList {
+.album_slide_wrap {
     width: 100%;
     max-width: 50rem;
     overflow: hidden;
     margin: 0 auto;
 }
-#albumList > ul {
-    width: 500%;
+.album_slide_list {
     display: flex;
-
     background-color: transparent;
 }
-#albumList > ul > li {
-    width: 20%;
+.album_slide_list > li {
+    flex: 1;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
     /* .back 요소의 위치지정요소가 되도록 설정 */
     position: relative;
 }
 
-#albumList > ul > li > img {
-    display: block;
-    width: 100%;
-}
-
-#albumList > ul > li > div.back {
+.album_slide_list > li > .back {
     position: absolute;
     top: 0;
     right: 0;
@@ -436,14 +331,14 @@
 
     opacity: 0;
 }
-#albumList > ul > li > div.back:hover {
+.album_slide_list > li > .back:hover {
     opacity: 1;
 }
-#albumList > ul > li > div.back > h3 {
+.album_slide_list > li > .back > h3 {
     margin: 40% auto 4rem auto;
     font-size: 2rem;
 }
-#prev, #next {
+.slide_prev_btn, .slide_next_btn {
     background-color: transparent;
     border: none;
     padding: 0;
@@ -455,27 +350,18 @@
     top: 50%;
     transform: translateY(-50%);
 }
-#prev:hover, #next:hover {
+.slide_prev_btn:hover, .slide_next_btn:hover {
     cursor: pointer;
 }
-#prev {
+.slide_prev_btn {
     background-image: url(../images/prev_grey.png);
     background-repeat: no-repeat;
     background-size: cover;
     left: calc(-5rem - 10%);
 }
-#next {
+.slide_next_btn {
     background-image: url(../images/next_grey.png);
     right: calc(-5rem - 10%);
-}
-/* 웹 접근성 향상 <span> 요소 보이지 않도록 설정 */
-#prev > span, #next > span {
-    display: block;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    clip: rect(0,0,0,0);
-    overflow: hidden;
 }
 
 /* indicator 요소 위치 */
@@ -549,23 +435,23 @@
 #page7 > header > button {
     background-image: url(../images/menu_grey.png);
 } */
-#news {
+.news_list {
     width: 70%;
     /* margin: 5% auto 0 auto; */
 }
-#news > li {
+.news_list > li {
     display: flex;
     margin-bottom: 2rem;
 }
-#news > li:last-child {margin-bottom: none;}
+.news_list > li:last-child {margin-bottom: none;}
 
-#news > li > p.date {
+.news_list > li > .date {
     width: 12rem;
     color: #d0d0d0;
     margin-right: 2rem;
     line-height: 1.6;
 }
-#news > li > p.title {
+.news_list > li > .title {
     color: #d0d0d0;
     font-size: 2rem;
     margin-top: 1rem;
@@ -575,7 +461,7 @@
     /* 가상요소 배치시 기준이 되도록 */
     position: relative;
 }
-#news > li > p.title:before {
+.news_list > li > .title:before {
     content: "";
 
     /* p.date 요소를 기준으로 배치 */
@@ -601,16 +487,6 @@
     background-position-y: 50%;
     cursor: pointer;
 }
-/* 웹 접근성 향상 span 요소 안 보이게 설정 */
-.more > span {
-    display: block;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    clip: rect(0,0,0,0);
-    overflow: hidden;
-}
-
 /* page 8 - newsletter */
 .newsletter {
     background: linear-gradient(90deg, rgba(34,34,34,1) 50%, rgba(32,32,32,1) 100%);
@@ -630,43 +506,27 @@
 .newsletter .aside-title > span:first-child {
     position: absolute;
     bottom: 20rem;
-    left: 12rem;
+    left: 10rem;
 }
-#box {
+.newsletter_container {
     position: relative;
     width: 80%;
     height: 100%;
     margin: 0 auto;
 }
 
-
-
-
 /* 실리카겔 image */
-#box > img:first-child {
+.newsletter_photo {
     position: absolute;
-    width: 40%;
     max-width: 60rem;
-    left: 0;
-    bottom: 10%;
+    height: auto;
 }
-#box > img:nth-child(2) {
-    width: 25%;
-    max-width: 60rem;
-    position: absolute;
-    top: 0;
-    right: 10%;
-}
-#box > img:nth-child(3) {
-    width: 40%;
-    max-width: 60rem;
-    position: absolute;
-    top: 5%;
-    left: 10%;
-}
+.newsletter_photo:first-child {width: 40%; left: 0; bottom: 10%;}
+.newsletter_photo:nth-child(2) {width: 25%; top: 3%; right: 10%;}
+.newsletter_photo:nth-child(3) {width: 40%; top: 5%; left: 10%;}
 
 /* 뉴스레터 창 */
-#newsletter {
+.newsletter_form {
     /* border: 2px solid #202020; */
     background-color: #fefefe;
     width: 50%;
@@ -676,17 +536,14 @@
     position: absolute;
     bottom: 3rem;
     right: 0;
-}
-
-#newsletter > span {
     font-size: 2rem;
 }
-#email {
+.email_form {
     width: 100%;
     margin: 1rem 0 2rem 0;
 }
 /* checkbox */
-#check-container {
+.check-container {
     display: flex;
     flex-wrap: wrap;
 
@@ -697,7 +554,7 @@
     margin-bottom: 1rem;
 }
 
-#submit {
+.submit_btn {
     margin-top: 2rem;
     background-color: #fff;
     border: 1px solid #202020;
@@ -734,14 +591,4 @@
 @keyframes fadeIn {
     from {opacity: 0};
     to {opacity: 1};
-}
-
-/* footer */
-#footer {
-    height: 5rem;
-    background-color: #202020;
-    color: #fff;
-    text-align: right;
-    line-height: 3;
-    padding-right: 2rem;
 }
